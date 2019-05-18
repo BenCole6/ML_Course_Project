@@ -1,0 +1,67 @@
+---
+title:  |
+        | Selling Prices and Volumes Sold 
+        | of Australian Stock Exchange Shares
+subtitle: |
+          | MATH2319 - Machine Learning
+          | Course Project
+author: "Ben Cole - s3412349"
+date: "Print Date: `r format(Sys.Date(), '%d/%m/%Y')`"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+    latex_engine: xelatex
+mainfont: Arial Nova
+fontsize: 12pt
+geometry: margin=15mm
+---
+
+\newpage
+
+# **Phase 1 - Introduction, Cleaning, and Exploration**
+
+```{r}
+
+library(pacman)                         ## for loading multiple packages
+
+suppressMessages(p_load(character.only = T,
+                        install = F,
+                        c("tidyverse",  ## thanks Hadley
+                          "lubridate",  ## for handling dates
+                          "forcats",    ## for categorial variables, not for felines
+                          "zoo",        ## some data cleaning capabilities
+                          "lemon",      ## add ons for ggplot
+                          "rvest",      ## scraping web pages
+                          "knitr",      ## knitting to RMarkdown
+                          "kableExtra", ## add ons for knitr tables
+                          "scales",     ## quick and easy formatting prettynums
+                          "grid",       ## for stacking ggplots
+                          "gridExtra",  ## also for stacking ggplots
+                          "e1071",      ## for skew and kurtosis
+                          "janitor")))  ## cleaning colnames
+
+
+```
+
+```{r}
+
+Skater_Stats <- read_csv("skater_stats.csv")
+
+Skater_Stats <- select(Skater_Stats,
+                       -X1)
+
+Skater_Stats <- rename(Skater_Stats,
+                       "PM" = `+/-`,
+                       "S_Pc" = `S%`,
+                       "FO_Pc" = `FO%`)
+
+Skater_Stats[, c(7:length(colnames(Skater_Stats)))] <- mutate_all(Skater_Stats[, c(7:length(colnames(Skater_Stats)))],
+           as.double)
+
+```
+
+## References
+
+* <http://inalitic.com/datasets/nhl%20player%20data.html>
