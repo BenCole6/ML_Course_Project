@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1558233513266.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "598012086",
+    "id" : "BAF4E266",
+    "lastKnownWriteTime" : 1558235176,
+    "last_content_update" : 1558235176013,
+    "path" : "~/RMIT/2019 RMIT SEM 1/MACHINE LEARNING/Assignemnt Phase 1.1/ML_Course_Project/Autocorrelation.R",
+    "project_path" : "Autocorrelation.R",
+    "properties" : {
+        "cursorPosition" : "28,10",
+        "scrollLine" : "17",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
