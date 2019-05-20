@@ -1,0 +1,25 @@
+"0","Skater_Stats <- read_csv(file.path(getwd(),"
+"0","                                   ""skater_stats.csv""),"
+"0","                         na = c(""NA"",""na"", ""N/A"", ""n/a"", ""-"", """"))"
+"2","Missing column names filled in: 'X1' [1]"
+"2","Parsed with column specification:
+cols(
+  .default = col_double(),
+  X1 = [31mcol_character()[39m,
+  Player = [31mcol_character()[39m,
+  Tm = [31mcol_character()[39m,
+  Pos = [31mcol_character()[39m,
+  TOI = [32mcol_number()[39m,
+  ATOI = [34mcol_time(format = """")[39m
+)
+"
+"2","See spec(...) for full column specifications.
+"
+"0","Skater_Stats <- rename(Skater_Stats,"
+"0","                       ""PM"" = `+/-`)"
+"0","Skater_Stats <- clean_names(Skater_Stats,"
+"0","                            ""parsed"")"
+"0","Skater_Stats <- select(Skater_Stats,"
+"0","                       -X1)"
+"0","Skater_Stats[, c(7:length(colnames(Skater_Stats)))] <- mutate_all(Skater_Stats[, c(7:length(colnames(Skater_Stats)))],"
+"0","                                                                  as.double)"

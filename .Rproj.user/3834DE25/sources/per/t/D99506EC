@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "4148739492",
+    "hash" : "3595405541",
     "id" : "D99506EC",
-    "lastKnownWriteTime" : 1558231109,
-    "last_content_update" : 1558231109953,
+    "lastKnownWriteTime" : 1558327983,
+    "last_content_update" : 1558327983148,
     "path" : "~/RMIT/2019 RMIT SEM 1/MACHINE LEARNING/Assignemnt Phase 1.1/ML_Course_Project/Assignment_Phase_1--Attempt_2.Rmd",
     "project_path" : "Assignment_Phase_1--Attempt_2.Rmd",
     "properties" : {
-        "cursorPosition" : "57,60",
-        "scrollLine" : "29"
+        "cursorPosition" : "254,0",
+        "scrollLine" : "244"
     },
     "relative_order" : 1,
     "source_on_save" : false,

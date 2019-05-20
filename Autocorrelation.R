@@ -29,4 +29,3 @@ for (i in colnames(Skater_double)) {
   pause(3)
   
 }
-
