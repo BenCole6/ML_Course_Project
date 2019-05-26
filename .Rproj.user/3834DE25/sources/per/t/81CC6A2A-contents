@@ -273,38 +273,58 @@ ggplot(advertising_train_long_num) +
 
 ```{r}
 
-
+advertising_train <- mutate(advertising_train,
+                            "ln_cpc" = log(cpc),
+                            "ln_ctr" = log(ctr),
+                            "ln_impr" = log(impression),
+                            "ln_y" = log(y))
 
 ```
 
-```{r, fig.height=15, fig.width=12}
+```{r}
 
-advertising_train_long_num <- mutate(advertising_train_long_num,
-                                 "ln_val" = log(Value),
-                                 "sqrt_val"= sqrt(Value),
-                                 "euler_val" = exp(Value),
-                                 "minmax_val" = ((Value - min(Value))/
-                                                   (max(Value) - min(Value))))
+normalise <- function(x) {
+  
+  (x - min(x)) /
+    (max(x) - min(x)) *(10 - 0) +0
+  
+}
 
-log_advertising <- gather(select(advertising_train_long_num,
-                                 Variable, ln_val, sqrt_val,
-                                 euler_val, minmax_val),
-                          ln_val, sqrt_val, euler_val, minmax_val,
-                          key = "Transformation",
-                          value = "Value")
+standardise <- function(x) {
+  
+  (x - mean(x)) / 
+    sd(x)
+  
+}
 
-ggplot(log_advertising) +
+price_normal <- mutate(advertising_train,
+                       norm_price1 = normalise(price1),
+                       norm_price2 = normalise(price2),
+                       norm_price3 = normalise(price3),
+                       std_price1 = standardise(price1),
+                       std_price2 = standardise(price2),
+                       std_price3 = standardise(price3))
+
+normal_price_long <- gather(price_normal,
+                            norm_price1, norm_price2, norm_price3,
+                            std_price1, std_price2, std_price3,
+                            key = "Normalisation",
+                            value = "Value")
+
+ggplot(normal_price_long) +
   geom_density(aes(x = Value),
                fill = "yellow",
                alpha = 1/3) +
-  facet_rep_wrap(Variable ~ Transformation,
+  facet_rep_wrap(~Normalisation,
+                 ncol = 3,
                  scales = "free",
-                 ncol = 6) +
-  theme_minimal() +
-  theme(panel.grid.major.x = element_blank(),
-        panel.grid.minor.x = element_blank(),
-        strip.background = element_rect(fill = "aliceblue",
-                                        colour = NA))
+                 repeat.tick.labels = T) +
+  theme_minimal()
+
+```
+
+
+```{r}
 
 
 ```

@@ -1,0 +1,512 @@
+scale_y_continuous(labels = comma,
+expand = c(0.01, 0),
+"Count") +
+scale_x_discrete(breaks = country_labels,
+"countryId") +
+labs(main = "Frequency of observations for each countryId",
+subtitle = "(a categorical variable)") +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank())
+ggplot(advertising_train) +
+geom_bar(aes(x = fct_infreq(countryId)),
+fill = "red3") +
+scale_y_continuous(labels = comma,
+expand = c(0.01, 0),
+"Count") +
+scale_x_discrete(breaks = country_labels,
+"countryId") +
+labs(title = "Frequency of observations for each countryId",
+subtitle = "(a categorical variable)") +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank())
+ggplot(advertising_train_long_cat) +
+geom_bar(aes(x = fct_infreq(Value),
+fill = Variable),
+show.legend = F) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free") +
+scale_y_continuous(labels = comma,
+expand = c(0.01, 0),
+"Count") +
+scale_fill_manual(values = c("blue4", "red3", "cyan3", "yellow3")) +
+labs(title = "Frequencies of each Categorical Variable") +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+ggplot(advertising_train_long_cat) +
+geom_bar(aes(x = fct_infreq(Value),
+fill = Variable),
+show.legend = F) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free") +
+scale_y_continuous(labels = comma,
+expand = c(0.01, 0),
+"Count") +
+scale_fill_manual(values = c("blue4", "red3", "cyan3", "yellow3")) +
+labs(title = "Frequencies of each Value for each Categorical Variable") +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+ggplot(advertising_train_long_cat) +
+geom_bar(aes(x = fct_infreq(Value),
+fill = Variable),
+show.legend = F) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free") +
+scale_y_continuous(labels = comma,
+expand = c(0.01, 0),
+"Count") +
+scale_x_discrete("Factor Value") +
+scale_fill_manual(values = c("blue4", "red3", "cyan3", "yellow3")) +
+labs(title = "Frequencies of each Value for each Categorical Variable") +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+ggplot(advertising_train) +
+geom_bar(aes(x = fct_infreq(countryId)),
+fill = "red3") +
+scale_y_continuous(labels = comma,
+expand = c(0.01, 0),
+"Count") +
+scale_x_discrete(breaks = country_labels,
+"countryId") +
+labs(title = "Frequency of observations for each countryId",
+subtitle = "(a categorical variable)") +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank())
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value)) +
+facet_rep_wrap(~Variable)
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value)) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free")
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 2/3) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free")
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 1/3) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free") +
+theme_minimal()
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 1/3) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free") +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 1/3) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free") +
+scale_x_log10() +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 1/3) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free") +
+scale_x_log10(labels = comma) +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 1/3) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free",
+ncol = 3) +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 1/3) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free",
+ncol = 3) +
+scale_x_log10(labels = comma) +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 1/3) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free",
+ncol = 3) +
+scale_x_log10(labels = comma_format(accuracy = 0.1)) +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+rm(list=ls())
+gc()
+library(pacman)                         ## for loading multiple packages
+suppressMessages(p_load(character.only = T,
+install = F,
+c("tidyverse",  ## thanks Hadley
+"lubridate",  ## for handling dates
+"forcats",    ## for categorial variables, not for felines
+"zoo",        ## some data cleaning capabilities
+"lemon",      ## add ons for ggplot
+"rvest",      ## scraping web pages
+"knitr",      ## knitting to RMarkdown
+"kableExtra", ## add ons for knitr tables
+"scales",     ## quick and easy formatting prettynums
+"grid",       ## for stacking ggplots
+"gridExtra",  ## also for stacking ggplots
+"e1071",      ## for skew and kurtosis
+"janitor",    ## cleaning colnames
+"beepr")))    ## plays a beep tone
+advertising_train <- read_csv("advertising_train.csv")
+sample_adv <- sample_n(advertising_train, 20)
+kable_styling(kable(sample_adv[ , 1:(ncol(sample_adv)/2)],
+caption = "Sample of Advertising Data Frame"),
+font_size = 8.5, latex_options = c("striped"),
+full_width = F)
+kable_styling(kable(sample_adv[ , c(1, ((ncol(sample_adv)/2)+1):ncol(sample_adv))],
+caption = "Sample of Advertising Data Frame (cont)"),
+font_size = 8.5, latex_options = c("striped"),
+full_width = F)
+advertising_train$companyId <- as.factor(advertising_train$companyId)
+advertising_train$countryId <- as.factor(advertising_train$countryId)
+advertising_train$deviceType <- as.factor(advertising_train$deviceType)
+advertising_train$dow <- as.factor(advertising_train$dow)
+sapply(advertising_train, class)
+advertising_train_long_num <- select(advertising_train,
+colnames(advertising_train),
+-case_id, -countryId,
+-companyId, -deviceType,
+-dow)
+advertising_train_long_num <- gather(advertising_train_long_num,
+key = "Variable",
+value = "Value")
+summary_adv_num <- summarise(group_by(advertising_train_long_num,
+Variable),
+"Mean" = mean(Value, na.rm = T),
+"Std Dev" = sd(Value, na.rm = T),
+"Min" = min(Value, na.rm = T),
+"Q1" = quantile(Value, 0.25, na.rm = T),
+"Median" = median(Value, na.rm = T),
+"Q3" = quantile(Value, 0.75, na.rm = T),
+"Max" = max(Value, na.rm = T),
+"Number of NA" = sum(is.na(Value)))
+kable_styling(kable(summary_adv_num,
+digits = 3, format.args = list(nsmall = 3,
+scientific = F,
+big.mark = ","),
+caption = "Summary Statistics of Numeric Variables"),
+font_size = 8.5, latex_options = c("striped"),
+full_width = F)
+advertising_train_long_cat <- select(advertising_train,
+countryId,
+companyId, deviceType,
+dow)
+advertising_train_long_cat <- gather(advertising_train_long_cat,
+key = "Variable",
+value = "Value")
+advertising_train_long_cat$Variable <- as.factor(advertising_train_long_cat$Variable)
+advertising_train_long_cat$Value <- as.factor(advertising_train_long_cat$Value)
+ggplot(advertising_train_long_cat) +
+geom_bar(aes(x = fct_infreq(Value),
+fill = Variable),
+show.legend = F) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free") +
+scale_y_continuous(labels = comma,
+expand = c(0.01, 0),
+"Count") +
+scale_x_discrete("Factor Value") +
+scale_fill_manual(values = c("blue4", "red3", "cyan3", "yellow3")) +
+labs(title = "Frequencies of each Value for each Categorical Variable") +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+country_labels <- levels(fct_infreq(advertising_train$countryId))[c(seq(1,
+length(levels(fct_infreq(advertising_train$countryId))),
+ceiling(length(levels(fct_infreq(advertising_train$countryId)))/10)))]
+ggplot(advertising_train) +
+geom_bar(aes(x = fct_infreq(countryId)),
+fill = "red3") +
+scale_y_continuous(labels = comma,
+expand = c(0.01, 0),
+"Count") +
+scale_x_discrete(breaks = country_labels,
+"countryId") +
+labs(title = "Frequency of observations for each countryId",
+subtitle = "(a categorical variable)") +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank())
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 1/3) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free",
+ncol = 3) +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 1/3) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free",
+ncol = 3) +
+scale_x_log10(labels = comma_format(accuracy = 0.1)) +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+advertising_train_long_num <- mutate(advertising_train_long_num,
+"ln_val" = log(Value),
+"sqrt_val"= sqrt(Value),
+"euler_val" = exp(Value),
+"minmax_val" = ((Value - min(Value))/
+(max(Value) - min(Value))))
+log_advertising <- gather(select(advertising_train_long_num,
+Variable, ln_val, sqrt_val,
+euler_val, minmax_val),
+ln_val, sqrt_val, euler_val, minmax_val,
+key = "Transformation",
+value = "Value")
+ggplot(log_advertising) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 1/3) +
+facet_rep_wrap(Variable ~ Transformation,
+scales = "free",
+ncol = 6) +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+rm(list=ls())
+gc()
+gc()
+library(pacman)                         ## for loading multiple packages
+suppressMessages(p_load(character.only = T,
+install = F,
+c("tidyverse",  ## thanks Hadley
+"lubridate",  ## for handling dates
+"forcats",    ## for categorial variables, not for felines
+"zoo",        ## some data cleaning capabilities
+"lemon",      ## add ons for ggplot
+"rvest",      ## scraping web pages
+"knitr",      ## knitting to RMarkdown
+"kableExtra", ## add ons for knitr tables
+"scales",     ## quick and easy formatting prettynums
+"grid",       ## for stacking ggplots
+"gridExtra",  ## also for stacking ggplots
+"e1071",      ## for skew and kurtosis
+"janitor",    ## cleaning colnames
+"beepr")))    ## plays a beep tone
+advertising_train <- read_csv("advertising_train.csv")
+sample_adv <- sample_n(advertising_train, 20)
+kable_styling(kable(sample_adv[ , 1:(ncol(sample_adv)/2)],
+caption = "Sample of Advertising Data Frame"),
+font_size = 8.5, latex_options = c("striped"),
+full_width = F)
+kable_styling(kable(sample_adv[ , c(1, ((ncol(sample_adv)/2)+1):ncol(sample_adv))],
+caption = "Sample of Advertising Data Frame (cont)"),
+font_size = 8.5, latex_options = c("striped"),
+full_width = F)
+advertising_train$companyId <- as.factor(advertising_train$companyId)
+advertising_train$countryId <- as.factor(advertising_train$countryId)
+advertising_train$deviceType <- as.factor(advertising_train$deviceType)
+advertising_train$dow <- as.factor(advertising_train$dow)
+sapply(advertising_train, class)
+advertising_train_long_num <- select(advertising_train,
+colnames(advertising_train),
+-case_id, -countryId,
+-companyId, -deviceType,
+-dow)
+advertising_train_long_num <- gather(advertising_train_long_num,
+key = "Variable",
+value = "Value")
+summary_adv_num <- summarise(group_by(advertising_train_long_num,
+Variable),
+"Mean" = mean(Value, na.rm = T),
+"Std Dev" = sd(Value, na.rm = T),
+"Min" = min(Value, na.rm = T),
+"Q1" = quantile(Value, 0.25, na.rm = T),
+"Median" = median(Value, na.rm = T),
+"Q3" = quantile(Value, 0.75, na.rm = T),
+"Max" = max(Value, na.rm = T),
+"Number of NA" = sum(is.na(Value)))
+kable_styling(kable(summary_adv_num,
+digits = 3, format.args = list(nsmall = 3,
+scientific = F,
+big.mark = ","),
+caption = "Summary Statistics of Numeric Variables"),
+font_size = 8.5, latex_options = c("striped"),
+full_width = F)
+advertising_train_long_cat <- select(advertising_train,
+countryId,
+companyId, deviceType,
+dow)
+advertising_train_long_cat <- gather(advertising_train_long_cat,
+key = "Variable",
+value = "Value")
+advertising_train_long_cat$Variable <- as.factor(advertising_train_long_cat$Variable)
+advertising_train_long_cat$Value <- as.factor(advertising_train_long_cat$Value)
+ggplot(advertising_train_long_cat) +
+geom_bar(aes(x = fct_infreq(Value),
+fill = Variable),
+show.legend = F) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free") +
+scale_y_continuous(labels = comma,
+expand = c(0.01, 0),
+"Count") +
+scale_x_discrete("Factor Value") +
+scale_fill_manual(values = c("blue4", "red3", "cyan3", "yellow3")) +
+labs(title = "Frequencies of each Value for each Categorical Variable") +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+country_labels <- levels(fct_infreq(advertising_train$countryId))[c(seq(1,
+length(levels(fct_infreq(advertising_train$countryId))),
+ceiling(length(levels(fct_infreq(advertising_train$countryId)))/10)))]
+ggplot(advertising_train) +
+geom_bar(aes(x = fct_infreq(countryId)),
+fill = "red3") +
+scale_y_continuous(labels = comma,
+expand = c(0.01, 0),
+"Count") +
+scale_x_discrete(breaks = country_labels,
+"countryId") +
+labs(title = "Frequency of observations for each countryId",
+subtitle = "(a categorical variable)") +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank())
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 1/3) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free",
+ncol = 3) +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+ggplot(advertising_train_long_num) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 1/3) +
+facet_rep_wrap(~Variable,
+repeat.tick.labels = T,
+scales = "free",
+ncol = 3) +
+scale_x_log10(labels = comma_format(accuracy = 0.1)) +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))
+advertising_train <- mutate(advertising_train,
+"log_cpc" = log(cpc),
+"log_ctr" = log(ctr),
+"log_impr" = log(impression),
+"log_y" = log(y))
+filter(advertising_train_long_num,
+Variable != "cpc|ctr|impression|y")
+advertising_train_long_num <- mutate(filter(advertising_train_long_num,
+Variable != "cpc|ctr|impression|y"),
+"ln_val" = log(Value),
+"sqrt_val"= sqrt(Value),
+"euler_val" = exp(Value),
+"minmax_val" = ((Value - min(Value))/
+(max(Value) - min(Value))))
+advertising_train_long_num
+log_advertising <- gather(select(advertising_train_long_num,
+Variable, ln_val, sqrt_val,
+euler_val, minmax_val),
+ln_val, sqrt_val, euler_val, minmax_val,
+key = "Transformation",
+value = "Value")
+trans_advertising <- gather(select(advertising_train_long_num,
+Variable, ln_val, sqrt_val,
+euler_val, minmax_val),
+ln_val, sqrt_val, euler_val, minmax_val,
+key = "Transformation",
+value = "Value")
+ggplot(trans_advertising) +
+geom_density(aes(x = Value),
+fill = "yellow",
+alpha = 1/3) +
+facet_rep_wrap(Variable ~ Transformation,
+scales = "free",
+ncol = 6) +
+theme_minimal() +
+theme(panel.grid.major.x = element_blank(),
+panel.grid.minor.x = element_blank(),
+strip.background = element_rect(fill = "aliceblue",
+colour = NA))

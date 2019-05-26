@@ -1,0 +1,5 @@
+"0","advertising_train <- mutate(advertising_train,"
+"0","                            ""ln_cpc"" = log(cpc),"
+"0","                            ""ln_ctr"" = log(ctr),"
+"0","                            ""ln_impr"" = log(impression),"
+"0","                            ""ln_y"" = log(y))"
