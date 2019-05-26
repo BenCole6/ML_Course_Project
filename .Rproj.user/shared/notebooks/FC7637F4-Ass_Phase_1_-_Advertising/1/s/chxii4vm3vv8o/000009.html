@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="lib/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lib/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="lib/kePrint-0.0.1/kePrint.js"></script>
+
+</head>
+<body style="background-color:white;">
+<table class="table" style="font-size: 8.5px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">Summary Statistics of Numeric Variables</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Variable </th>
+   <th style="text-align:right;"> Mean </th>
+   <th style="text-align:right;"> Std Dev </th>
+   <th style="text-align:right;"> Min </th>
+   <th style="text-align:right;"> Q1 </th>
+   <th style="text-align:right;"> Median </th>
+   <th style="text-align:right;"> Q3 </th>
+   <th style="text-align:right;"> Max </th>
+   <th style="text-align:right;"> Number of NA </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> ad_area </td>
+   <td style="text-align:right;"> 4.724 </td>
+   <td style="text-align:right;"> 6.273 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 7.500 </td>
+   <td style="text-align:right;"> 36.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ad_ratio </td>
+   <td style="text-align:right;"> 0.923 </td>
+   <td style="text-align:right;"> 0.482 </td>
+   <td style="text-align:right;"> 0.083 </td>
+   <td style="text-align:right;"> 0.833 </td>
+   <td style="text-align:right;"> 1.000 </td>
+   <td style="text-align:right;"> 1.000 </td>
+   <td style="text-align:right;"> 5.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cpc </td>
+   <td style="text-align:right;"> 0.178 </td>
+   <td style="text-align:right;"> 0.707 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.016 </td>
+   <td style="text-align:right;"> 0.125 </td>
+   <td style="text-align:right;"> 132.534 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ctr </td>
+   <td style="text-align:right;"> 0.033 </td>
+   <td style="text-align:right;"> 0.093 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.002 </td>
+   <td style="text-align:right;"> 0.012 </td>
+   <td style="text-align:right;"> 2.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> day </td>
+   <td style="text-align:right;"> 15.791 </td>
+   <td style="text-align:right;"> 8.386 </td>
+   <td style="text-align:right;"> 1.000 </td>
+   <td style="text-align:right;"> 9.000 </td>
+   <td style="text-align:right;"> 16.000 </td>
+   <td style="text-align:right;"> 23.000 </td>
+   <td style="text-align:right;"> 30.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> impression </td>
+   <td style="text-align:right;"> 5,585.714 </td>
+   <td style="text-align:right;"> 98,713.340 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 99.000 </td>
+   <td style="text-align:right;"> 1,058.000 </td>
+   <td style="text-align:right;"> 6,100,324.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> price1 </td>
+   <td style="text-align:right;"> 0.438 </td>
+   <td style="text-align:right;"> 1.281 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.010 </td>
+   <td style="text-align:right;"> 0.190 </td>
+   <td style="text-align:right;"> 14.690 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> price2 </td>
+   <td style="text-align:right;"> 0.630 </td>
+   <td style="text-align:right;"> 1.482 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.090 </td>
+   <td style="text-align:right;"> 0.570 </td>
+   <td style="text-align:right;"> 63.120 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> price3 </td>
+   <td style="text-align:right;"> 0.932 </td>
+   <td style="text-align:right;"> 1.840 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.295 </td>
+   <td style="text-align:right;"> 0.986 </td>
+   <td style="text-align:right;"> 78.900 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ratio1 </td>
+   <td style="text-align:right;"> 0.558 </td>
+   <td style="text-align:right;"> 0.447 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.750 </td>
+   <td style="text-align:right;"> 1.000 </td>
+   <td style="text-align:right;"> 1.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ratio2 </td>
+   <td style="text-align:right;"> 0.491 </td>
+   <td style="text-align:right;"> 0.414 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.627 </td>
+   <td style="text-align:right;"> 0.896 </td>
+   <td style="text-align:right;"> 1.027 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ratio3 </td>
+   <td style="text-align:right;"> 0.312 </td>
+   <td style="text-align:right;"> 0.444 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.028 </td>
+   <td style="text-align:right;"> 1.000 </td>
+   <td style="text-align:right;"> 1.500 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ratio4 </td>
+   <td style="text-align:right;"> 0.131 </td>
+   <td style="text-align:right;"> 0.240 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.164 </td>
+   <td style="text-align:right;"> 1.077 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ratio5 </td>
+   <td style="text-align:right;"> 0.188 </td>
+   <td style="text-align:right;"> 0.297 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.385 </td>
+   <td style="text-align:right;"> 1.200 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> requests </td>
+   <td style="text-align:right;"> 8,678.997 </td>
+   <td style="text-align:right;"> 122,347.229 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 147.000 </td>
+   <td style="text-align:right;"> 1,633.000 </td>
+   <td style="text-align:right;"> 6,701,924.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> viewability </td>
+   <td style="text-align:right;"> 0.378 </td>
+   <td style="text-align:right;"> 0.366 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.332 </td>
+   <td style="text-align:right;"> 0.716 </td>
+   <td style="text-align:right;"> 7.000 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> y </td>
+   <td style="text-align:right;"> 0.847 </td>
+   <td style="text-align:right;"> 1.391 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.150 </td>
+   <td style="text-align:right;"> 0.419 </td>
+   <td style="text-align:right;"> 0.959 </td>
+   <td style="text-align:right;"> 47.060 </td>
+   <td style="text-align:right;"> 0.000 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
