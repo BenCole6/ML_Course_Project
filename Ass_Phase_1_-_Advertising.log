@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6930 64-bit) (preloaded format=xelatex 2019.4.25)  26 MAY 2019 17:02
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6930 64-bit) (preloaded format=xelatex 2019.4.25)  27 MAY 2019 16:49
 entering extended mode
 **./Ass_Phase_1_-_Advertising.tex
 (Ass_Phase_1_-_Advertising.tex
@@ -1343,39 +1343,237 @@ Package xcolor Warning: Incompatible color definition on input line 634.
 
 [11]
 
-Package xcolor Warning: Incompatible color definition on input line 660.
+Package xcolor Warning: Incompatible color definition on input line 642.
 
 
-Package xcolor Warning: Incompatible color definition on input line 660.
+Package xcolor Warning: Incompatible color definition on input line 642.
 
 
-Underfull \vbox (badness 10000) detected at line 660
+Underfull \vbox (badness 10000) detected at line 642
  []
 
 
-Overfull \vbox (2.00719pt too high) detected at line 660
+Overfull \vbox (2.00719pt too high) detected at line 642
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 660.
+Package xcolor Warning: Incompatible color definition on input line 642.
 
 [12]
 
-Package xcolor Warning: Incompatible color definition on input line 660.
+Package xcolor Warning: Incompatible color definition on input line 642.
 
 
-Package xcolor Warning: Incompatible color definition on input line 660.
+Package xcolor Warning: Incompatible color definition on input line 642.
 
-File: Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-9-1.pdf Graphi
-c file (type pdf)
-<use Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-9-1.pdf>
-[13] [14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 673.
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 705.
+
+
+Package xcolor Warning: Incompatible color definition on input line 705.
+
+
+Underfull \vbox (badness 10000) detected at line 705
+ []
+
+
+Overfull \vbox (1.5913pt too high) detected at line 705
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 705.
+
+[13]
+
+Package xcolor Warning: Incompatible color definition on input line 705.
+
+
+Package xcolor Warning: Incompatible color definition on input line 705.
+
+File: Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-10-1.pdf Graph
+ic file (type pdf)
+<use Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-10-1.pdf>
+
+Package xcolor Warning: Incompatible color definition on input line 709.
+
+
+Package xcolor Warning: Incompatible color definition on input line 718.
+
+
+Package xcolor Warning: Incompatible color definition on input line 718.
+
+File: Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-11-1.pdf Graph
+ic file (type pdf)
+<use Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-11-1.pdf>
+
+Package xcolor Warning: Incompatible color definition on input line 726.
+
+[14]
+
+Package xcolor Warning: Incompatible color definition on input line 738.
+
+
+Package xcolor Warning: Incompatible color definition on input line 738.
+
+File: Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-11-2.pdf Graph
+ic file (type pdf)
+<use Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-11-2.pdf>
+
+Package xcolor Warning: Incompatible color definition on input line 746.
+
+
+Package xcolor Warning: Incompatible color definition on input line 760.
+
+
+Package xcolor Warning: Incompatible color definition on input line 760.
+
+
+Underfull \vbox (badness 1460) detected at line 760
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 760.
+
 [15]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 673.
+
+Package xcolor Warning: Incompatible color definition on input line 760.
+
+
+Package xcolor Warning: Incompatible color definition on input line 760.
+
+File: Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-12-1.pdf Graph
+ic file (type pdf)
+<use Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-12-1.pdf>
+
+Package xcolor Warning: Incompatible color definition on input line 768.
+
+
+Package xcolor Warning: Incompatible color definition on input line 777.
+
+
+Package xcolor Warning: Incompatible color definition on input line 777.
+
+File: Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-12-2.pdf Graph
+ic file (type pdf)
+<use Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-12-2.pdf>
+
+Package xcolor Warning: Incompatible color definition on input line 785.
+
+[16]
+
+Package xcolor Warning: Incompatible color definition on input line 794.
+
+
+Package xcolor Warning: Incompatible color definition on input line 794.
+
+File: Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-12-3.pdf Graph
+ic file (type pdf)
+<use Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-12-3.pdf>
+
+Package xcolor Warning: Incompatible color definition on input line 802.
+
+
+Package xcolor Warning: Incompatible color definition on input line 823.
+
+
+Package xcolor Warning: Incompatible color definition on input line 823.
+
+
+Package xcolor Warning: Incompatible color definition on input line 823.
+
+[17]
+
+Package xcolor Warning: Incompatible color definition on input line 823.
+
+
+Package xcolor Warning: Incompatible color definition on input line 823.
+
+File: Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-13-1.pdf Graph
+ic file (type pdf)
+<use Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-13-1.pdf>
+
+Package xcolor Warning: Incompatible color definition on input line 827.
+
+
+Package xcolor Warning: Incompatible color definition on input line 856.
+
+
+Package xcolor Warning: Incompatible color definition on input line 856.
+
+
+Underfull \vbox (badness 10000) detected at line 856
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 856.
+
+[18]
+
+Package xcolor Warning: Incompatible color definition on input line 856.
+
+
+Package xcolor Warning: Incompatible color definition on input line 856.
+
+File: Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-13-2.pdf Graph
+ic file (type pdf)
+<use Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-13-2.pdf>
+
+Package xcolor Warning: Incompatible color definition on input line 860.
+
+
+Package xcolor Warning: Incompatible color definition on input line 869.
+
+
+Package xcolor Warning: Incompatible color definition on input line 869.
+
+File: Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-14-1.pdf Graph
+ic file (type pdf)
+<use Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-14-1.pdf>
+
+Package xcolor Warning: Incompatible color definition on input line 877.
+
+[19]
+
+Package xcolor Warning: Incompatible color definition on input line 889.
+
+
+Package xcolor Warning: Incompatible color definition on input line 889.
+
+File: Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-14-2.pdf Graph
+ic file (type pdf)
+<use Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-14-2.pdf>
+
+Package xcolor Warning: Incompatible color definition on input line 897.
+
+
+Package xcolor Warning: Incompatible color definition on input line 937.
+
+
+Package xcolor Warning: Incompatible color definition on input line 937.
+
+
+Package xcolor Warning: Incompatible color definition on input line 937.
+
+[20]
+
+Package xcolor Warning: Incompatible color definition on input line 937.
+
+
+Package xcolor Warning: Incompatible color definition on input line 937.
+
+File: Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-15-1.pdf Graph
+ic file (type pdf)
+<use Ass_Phase_1_-_Advertising_files/figure-latex/unnamed-chunk-15-1.pdf>
+[21]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 946.
+[22]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 946.
 (Ass_Phase_1_-_Advertising.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 673.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 673.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 946.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 946.
 Package rerunfilecheck Info: File `Ass_Phase_1_-_Advertising.out' has not chang
 ed.
 (rerunfilecheck)             Checksum: C0A1DC519562FDFE208B1D27690BFD8B.
@@ -1384,12 +1582,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25660 strings out of 427748
- 460037 string characters out of 3143988
+ 25700 strings out of 427748
+ 462561 string characters out of 3143988
  629263 words of memory out of 3000000
- 29427 multiletter control sequences out of 15000+200000
+ 29457 multiletter control sequences out of 15000+200000
  557234 words of font info for 76 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  48i,9n,116p,824b,446s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Ass_Phase_1_-_Advertising.pdf (15 pages).
+Output written on Ass_Phase_1_-_Advertising.pdf (22 pages).
