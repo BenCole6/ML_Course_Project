@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1558932951583.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3783992107",
+    "id" : "FF36870F",
+    "lastKnownWriteTime" : 1558937981,
+    "last_content_update" : 1558937981843,
+    "path" : "~/RMIT/2019 RMIT SEM 1/MACHINE LEARNING/Assignemnt Phase 1.1/ML_Course_Project/dead_boxcox.R",
+    "project_path" : "dead_boxcox.R",
+    "properties" : {
+        "cursorPosition" : "50,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
