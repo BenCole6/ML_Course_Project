@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6930 64-bit) (preloaded format=xelatex 2019.4.25)  31 MAY 2019 07:04
+This is XeTeX, Version 3.14159265-2.6-0.99999 (MiKTeX 2.9.6930 64-bit) (preloaded format=xelatex 2019.4.25)  31 MAY 2019 19:23
 entering extended mode
 **./ML_rmd_2.1.tex
 (ML_rmd_2.1.tex
@@ -985,10 +985,10 @@ LaTeX Warning: Label `tab:unnamed-chunk-2' multiply defined.
 LaTeX Warning: Label `tab:unnamed-chunk-8' multiply defined.
 
 
-LaTeX Warning: Label `tab:unnamed-chunk-16' multiply defined.
+LaTeX Warning: Label `tab:unnamed-chunk-17' multiply defined.
 
 
-LaTeX Warning: Label `tab:unnamed-chunk-16' multiply defined.
+LaTeX Warning: Label `tab:unnamed-chunk-17' multiply defined.
 
 )
 \openout1 = `ML_rmd_2.1.aux'.
@@ -1327,316 +1327,1965 @@ Package xcolor Warning: Incompatible color definition on input line 673.
 
 [13]
 
-Package xcolor Warning: Incompatible color definition on input line 690.
+Package xcolor Warning: Incompatible color definition on input line 698.
 
 
-Package xcolor Warning: Incompatible color definition on input line 690.
+Package xcolor Warning: Incompatible color definition on input line 698.
 
 
-Package xcolor Warning: Incompatible color definition on input line 744.
+Package xcolor Warning: Incompatible color definition on input line 813.
 
 
-Package xcolor Warning: Incompatible color definition on input line 754.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 
-Package xcolor Warning: Incompatible color definition on input line 754.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 
-Package xcolor Warning: Incompatible color definition on input line 817.
-
-
-Package xcolor Warning: Incompatible color definition on input line 918.
-
-
-Package xcolor Warning: Incompatible color definition on input line 918.
-
-
-Overfull \vbox (1.31287pt too high) detected at line 918
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 918.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 [14]
 
-Package xcolor Warning: Incompatible color definition on input line 918.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 
-Package xcolor Warning: Incompatible color definition on input line 918.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 
-Underfull \vbox (badness 10000) detected at line 918
+Underfull \vbox (badness 10000) detected at line 914
  []
 
 
-Underfull \vbox (badness 10000) detected at line 918
+Overfull \vbox (1.86298pt too high) detected at line 914
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 918.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 [15]
 
-Package xcolor Warning: Incompatible color definition on input line 918.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 
-Package xcolor Warning: Incompatible color definition on input line 918.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 
-Underfull \vbox (badness 10000) detected at line 918
+Underfull \vbox (badness 10000) detected at line 914
  []
 
 
-Underfull \vbox (badness 10000) detected at line 918
+Underfull \vbox (badness 10000) detected at line 914
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 918.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 [16]
 
-Package xcolor Warning: Incompatible color definition on input line 918.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 
-Package xcolor Warning: Incompatible color definition on input line 918.
+Package xcolor Warning: Incompatible color definition on input line 914.
 
 File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pd
 f)
 <use ML_rmd_2.1_files/figure-latex/unnamed-chunk-9-1.pdf>
 
-Package xcolor Warning: Incompatible color definition on input line 937.
+Package xcolor Warning: Incompatible color definition on input line 933.
 
 [17]
 
-Package xcolor Warning: Incompatible color definition on input line 949.
+Package xcolor Warning: Incompatible color definition on input line 945.
 
 
-Package xcolor Warning: Incompatible color definition on input line 949.
+Package xcolor Warning: Incompatible color definition on input line 945.
 
 File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type p
 df)
 <use ML_rmd_2.1_files/figure-latex/unnamed-chunk-10-1.pdf>
 
-Package xcolor Warning: Incompatible color definition on input line 964.
+Package xcolor Warning: Incompatible color definition on input line 960.
 
 
-Package xcolor Warning: Incompatible color definition on input line 979.
+Package xcolor Warning: Incompatible color definition on input line 975.
 
 
-Package xcolor Warning: Incompatible color definition on input line 979.
+Package xcolor Warning: Incompatible color definition on input line 975.
 
 
-Overfull \vbox (1.09734pt too high) detected at line 979
+Overfull \vbox (1.09734pt too high) detected at line 975
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 979.
+Package xcolor Warning: Incompatible color definition on input line 975.
 
 [18]
 
-Package xcolor Warning: Incompatible color definition on input line 979.
+Package xcolor Warning: Incompatible color definition on input line 975.
 
 
-Package xcolor Warning: Incompatible color definition on input line 979.
+Package xcolor Warning: Incompatible color definition on input line 975.
 
 File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type p
 df)
 <use ML_rmd_2.1_files/figure-latex/unnamed-chunk-11-1.pdf>
 
-Package xcolor Warning: Incompatible color definition on input line 992.
+Package xcolor Warning: Incompatible color definition on input line 988.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1004.
+Package xcolor Warning: Incompatible color definition on input line 1000.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1004.
+Package xcolor Warning: Incompatible color definition on input line 1000.
 
 File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type p
 df)
 <use ML_rmd_2.1_files/figure-latex/unnamed-chunk-12-1.pdf>
 
-Package xcolor Warning: Incompatible color definition on input line 1012.
+Package xcolor Warning: Incompatible color definition on input line 1008.
 
 [19]
 
-Package xcolor Warning: Incompatible color definition on input line 1027.
+Package xcolor Warning: Incompatible color definition on input line 1023.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1027.
+Package xcolor Warning: Incompatible color definition on input line 1023.
 
 File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-12-2.pdf Graphic file (type p
 df)
 <use ML_rmd_2.1_files/figure-latex/unnamed-chunk-12-2.pdf>
 [20]
 
-Package xcolor Warning: Incompatible color definition on input line 1042.
+Package xcolor Warning: Incompatible color definition on input line 1038.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1093.
+Package xcolor Warning: Incompatible color definition on input line 1089.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1093.
+Package xcolor Warning: Incompatible color definition on input line 1089.
 
 [21]
 File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type p
 df)
 <use ML_rmd_2.1_files/figure-latex/unnamed-chunk-13-1.pdf>
 
-Package xcolor Warning: Incompatible color definition on input line 1111.
+Package xcolor Warning: Incompatible color definition on input line 1107.
 
 [22]
 
-Package xcolor Warning: Incompatible color definition on input line 1167.
+Package xcolor Warning: Incompatible color definition on input line 1163.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1167.
+Package xcolor Warning: Incompatible color definition on input line 1163.
 
 
-Underfull \vbox (badness 10000) detected at line 1167
+Underfull \vbox (badness 10000) detected at line 1163
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1167
+Underfull \vbox (badness 10000) detected at line 1163
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 1167.
+Package xcolor Warning: Incompatible color definition on input line 1163.
 
 [23]
 
-Package xcolor Warning: Incompatible color definition on input line 1167.
+Package xcolor Warning: Incompatible color definition on input line 1163.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1167.
+Package xcolor Warning: Incompatible color definition on input line 1163.
 
-File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (type p
+
+Package xcolor Warning: Incompatible color definition on input line 1165.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1174.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1174.
+
+File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type p
 df)
-<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-1.pdf>
-File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-2.pdf Graphic file (type p
-df)
-<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-2.pdf>
-File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-3.pdf Graphic file (type p
-df)
-<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-3.pdf>
-File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-4.pdf Graphic file (type p
-df)
-<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-4.pdf>
-File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-5.pdf Graphic file (type p
-df)
-<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-5.pdf>
-File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-6.pdf Graphic file (type p
-df)
-<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-6.pdf>
-File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-7.pdf Graphic file (type p
-df)
-<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-7.pdf>
-File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-8.pdf Graphic file (type p
-df)
-<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-8.pdf>
-File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-9.pdf Graphic file (type p
-df)
-<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-9.pdf>
-File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-10.pdf Graphic file (type 
-pdf)
-<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-10.pdf>
-File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-11.pdf Graphic file (type 
-pdf)
-<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-11.pdf>
-File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-12.pdf Graphic file (type 
-pdf)
-<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-14-12.pdf>
-[24] [25] [26] [27] [28]
+<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-16-1.pdf>
+[24] [25] [26]
 
-Package xcolor Warning: Incompatible color definition on input line 1182.
+Package xcolor Warning: Incompatible color definition on input line 1210.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1191.
+Package xcolor Warning: Incompatible color definition on input line 1235.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1191.
-
-File: ML_rmd_2.1_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (type p
-df)
-<use ML_rmd_2.1_files/figure-latex/unnamed-chunk-15-1.pdf>
-[29] [30] [31]
-
-Package xcolor Warning: Incompatible color definition on input line 1227.
+Package xcolor Warning: Incompatible color definition on input line 1235.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1252.
+Package xcolor Warning: Incompatible color definition on input line 1255.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1252.
+Package xcolor Warning: Incompatible color definition on input line 1266.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1272.
+Package xcolor Warning: Incompatible color definition on input line 1266.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1281.
+Package xcolor Warning: Incompatible color definition on input line 1266.
+
+[27]
+
+Package xcolor Warning: Incompatible color definition on input line 1266.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1281.
+Package xcolor Warning: Incompatible color definition on input line 1266.
 
+LaTeX Font Info:    Font shape `TU/ArialNova(0)/m/n' will be
+(Font)              scaled to size 6.65552pt on input line 1272.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 1273.
 
-Package xcolor Warning: Incompatible color definition on input line 1281.
-
-[32]
-
-Package xcolor Warning: Incompatible color definition on input line 1281.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1281.
-
-
-Overfull \hbox (87.17178pt too wide) in paragraph at lines 1288--1333
- [][] 
+Overfull \hbox (1.34532pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 case_id|
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 1335.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1345.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1345.
-
-
-Overfull \hbox (206.62125pt too wide) in paragraph at lines 1352--1397
- [][] 
+Overfull \hbox (11.50084pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 companyId|  
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 1399.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1409.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1409.
-
-
-Overfull \hbox (351.02736pt too wide) in paragraph at lines 1416--1461
- [][] 
+Overfull \hbox (6.67819pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 countryId|  
  []
 
-[33]
+
+Overfull \hbox (12.13455pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 deviceType|  
+ []
+
+
+Overfull \hbox (2.48274pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 ad_area|
+ []
+
+
+Overfull \hbox (2.51524pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 ad_ratio|
+ []
+
+
+Overfull \hbox (4.33511pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 requests|
+ []
+
+
+Overfull \hbox (11.00688pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 impression|
+ []
+
+
+Overfull \hbox (9.10252pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 viewability|
+ []
+
+
+Overfull \hbox (2.81422pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 128,648|
+ []
+
+
+Overfull \hbox (13.17122pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Wednesday|  
+ []
+
+
+Overfull \hbox (5.0923pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Saturday|  
+ []
+
+
+Overfull \hbox (1.10484pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Sunday|  
+ []
+
+
+Overfull \hbox (2.81422pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 117,805|
+ []
+
+
+Overfull \hbox (2.36575pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Monday|  
+ []
+
+
+Overfull \hbox (3.0612pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Tuesday|  
+ []
+
+
+Overfull \hbox (2.81422pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 106,357|
+ []
+
+
+Overfull \hbox (1.10484pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Sunday|  
+ []
+
+
+Overfull \hbox (2.81422pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 129,661|
+ []
+
+
+Overfull \hbox (13.17122pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Wednesday|  
+ []
+
+
+Overfull \hbox (2.81422pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 178,825|
+ []
+
+
+Overfull \hbox (3.0612pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Tuesday|  
+ []
+
+
+Overfull \hbox (5.0923pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Saturday|  
+ []
+
+
+Overfull \hbox (2.81422pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 18.0000|
+ []
+
+
+Overfull \hbox (2.81422pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 173,674|
+ []
+
+
+Overfull \hbox (3.0612pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Tuesday|  
+ []
+
+
+Overfull \hbox (2.81422pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 202,874|
+ []
+
+
+Overfull \hbox (5.0923pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Saturday|  
+ []
+
+
+Overfull \hbox (2.81422pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 18.0000|
+ []
+
+
+Overfull \hbox (2.81422pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 124,197|
+ []
+
+
+Overfull \hbox (3.0612pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Tuesday|  
+ []
+
+
+Overfull \hbox (13.17122pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Wednesday|  
+ []
+
+
+Overfull \hbox (5.0923pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Saturday|  
+ []
+
+
+Overfull \hbox (2.81422pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 14.0400|
+ []
+
+
+Overfull \hbox (13.17122pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Wednesday|  
+ []
+
+
+Overfull \hbox (2.81422pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 127,966|
+ []
+
+
+Overfull \hbox (13.17122pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Wednesday|  
+ []
+
+
+Overfull \hbox (13.17122pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Wednesday|  
+ []
+
+
+Overfull \hbox (2.81422pt too wide) in paragraph at lines 1317--1317
+ []\TU/ArialNova(0)/m/n/8 141,192|
+ []
+
+
+Overfull \hbox (6.29797pt too wide) in paragraph at lines 1317--1317
+[]\TU/ArialNova(0)/m/n/8 Thursday|  
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 1320.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1332.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1332.
+
+
+Overfull \hbox (3.28995pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 case_id|
+ []
+
+
+Overfull \hbox (2.67575pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 ln_impr|
+ []
+
+
+Overfull \hbox (21.99886pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 norm_case_id|
+ []
+
+
+Overfull \hbox (10.04622pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 norm_day|
+ []
+
+
+Overfull \hbox (18.12514pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 norm_price1|
+ []
+
+
+Overfull \hbox (18.12514pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 norm_price2|
+ []
+
+
+Overfull \hbox (18.12514pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 norm_price3|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 128,648|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0294|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.6008|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00681|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00158|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00253|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 91,462|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.4271|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.01225|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00840|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.01334|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 1.0000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0087|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 57,676|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.2693|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00681|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00158|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00253|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 117,805|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 1.0000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.5502|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.38802|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.09030|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.07221|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 44,642|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.2085|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00340|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00079|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00063|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 24,282|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 1.0000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.1134|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 106,357|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.4967|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 129,661|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 1.0556|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.6055|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 178,825|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 1.0000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.8351|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.02110|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.02186|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.03494|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 48,986|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0031|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.2288|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.01157|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.01965|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.03143|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 173,674|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.1002|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.8111|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.07624|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.04024|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.06426|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 202,874|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.9474|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00068|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00713|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.01128|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 124,197|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.5800|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 30,209|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.1411|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.03880|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00903|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00724|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 97,721|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0129|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.4564|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.03268|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.01236|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.01976|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 29,316|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0478|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.1369|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.03676|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.03628|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.05792|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 127,966|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0606|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.5976|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 29,618|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.1383|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00749|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00491|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00767|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 141,192|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.6594|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1383--1383
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 1386.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1398.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1398.
+
+
+Overfull \hbox (3.28995pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 case_id|
+ []
+
+
+Overfull \hbox (23.13626pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_ad_area|
+ []
+
+
+Overfull \hbox (23.16876pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_ad_ratio|
+ []
+
+
+Overfull \hbox (24.98863pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_requests|
+ []
+
+
+Overfull \hbox (31.6604pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_impression|
+ []
+
+
+Overfull \hbox (10.37444pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_cpc|
+ []
+
+
+Overfull \hbox (7.42041pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_ctr|
+ []
+
+
+Overfull \hbox (29.75604pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_viewability|
+ []
+
+
+Overfull \hbox (16.25652pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_ratio1|
+ []
+
+
+Overfull \hbox (16.25652pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_ratio2|
+ []
+
+
+Overfull \hbox (16.25652pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_ratio3|
+ []
+
+
+Overfull \hbox (16.25652pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_ratio4|
+ []
+
+
+Overfull \hbox (16.25652pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_ratio5|
+ []
+
+
+Overfull \hbox (2.92273pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_y|
+ []
+
+
+Overfull \hbox (18.89207pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_ln_cpc|
+ []
+
+
+Overfull \hbox (15.93803pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_ln_ctr|
+ []
+
+
+Overfull \hbox (21.38464pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 norm_ln_impr|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 128,648|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1864|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000440|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000223|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000224|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00370|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0196|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00122|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 91,462|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1525|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.03430|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0015|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0003226|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0003526|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000410|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00165|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.6667|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00385|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 57,676|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1864|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00085|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 117,805|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1864|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000289|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000070|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000228|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.04650|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.6667|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00691|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 44,642|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1525|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00863|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 24,282|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1864|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0001018|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0001000|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000152|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00165|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.6667|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00107|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 106,357|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1864|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00085|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 129,661|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1864|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000027|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000030|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000070|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.02780|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.7037|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00558|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 178,825|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1525|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0005945|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0003021|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.035773|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00025|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.6667|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.01914|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 48,986|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.3898|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0001859|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0001593|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.004420|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00105|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0021|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.01562|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 173,674|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1525|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0005228|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0003567|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.017571|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00045|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0668|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.02559|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 202,874|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.3898|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.01678|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 124,197|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1864|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000030|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000033|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000042|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.05000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.01605|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 30,209|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1525|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.02467|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 97,721|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1134|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0001249|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0001146|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000454|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00430|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0086|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.01124|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 29,316|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1525|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0008326|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0002398|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.017309|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00035|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0319|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00711|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 127,966|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1864|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0078001|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0031590|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000383|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00265|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0404|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00192|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 29,618|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1525|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.01837|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 141,192|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.1864|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (12.16182pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000000|
+ []
+
+
+Overfull \hbox (8.46033pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.000000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.00000|
+ []
+
+
+Overfull \hbox (1.05737pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.0000|
+ []
+
+
+Overfull \hbox (4.75885pt too wide) in paragraph at lines 1449--1449
+ []\TU/ArialNova(0)/m/n/8 0.05221|
+ []
+
+[28]
 LaTeX Font Info:    Font shape `TU/ArialNova(0)/m/it' will be
-(Font)              scaled to size 9.10973pt on input line 1472.
+(Font)              scaled to size 9.10973pt on input line 1461.
 
-Underfull \hbox (badness 1107) in paragraph at lines 1475--1479
+Underfull \hbox (badness 1107) in paragraph at lines 1464--1468
 \TU/ArialNova(0)/m/n/10.95 Research & Evaluation, V.05 No.12, [][]$[][][][] [] 
 [] [] [][][][][][][][][] [] [][][] [] [][][] [] [][][] [] [][][][][][][] [] [][
 ][][][][][][] [] [][][] [] [][] [] [] [] [] [] [][][] [] [][][][] [] [][][] [] 
 [][][][] [] [][][][] []
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1482.
-[34] [35]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1482.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1471.
+[29]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1471.
 (ML_rmd_2.1.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1482.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1482.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1471.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1471.
 
 Package rerunfilecheck Info: File `ML_rmd_2.1.out' has not changed.
 (rerunfilecheck)             Checksum: 3A67E4FC959FD72938F19CFDCA66DD04.
@@ -1645,12 +3294,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25742 strings out of 427748
- 463600 string characters out of 3143988
- 687989 words of memory out of 3000000
- 29490 multiletter control sequences out of 15000+200000
- 557242 words of font info for 77 fonts, out of 3000000 for 9000
+ 25754 strings out of 427748
+ 461850 string characters out of 3143988
+ 707464 words of memory out of 3000000
+ 29513 multiletter control sequences out of 15000+200000
+ 561249 words of font info for 83 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
- 48i,9n,116p,809b,446s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,15n,116p,809b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on ML_rmd_2.1.pdf (35 pages).
+Output written on ML_rmd_2.1.pdf (29 pages).
