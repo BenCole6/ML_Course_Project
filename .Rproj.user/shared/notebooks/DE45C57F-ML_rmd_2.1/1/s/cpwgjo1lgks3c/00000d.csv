@@ -16,5 +16,3 @@
 "0","         panel.grid.minor.x = element_blank(),"
 "0","         strip.background = element_rect(fill = ""aliceblue"","
 "0","                                         colour = NA))"
-"2","
-"

@@ -757,6 +757,22 @@ kable_styling(kable(sample_adv[, c(1,
 \newpage   
 \pagebreak
 
+# **Phase 2: Algorithm Implementation**
+
+## Overview
+
+## Feature Selection
+
+## Performance Comparison
+
+## Results
+
+### Discussion
+
+#### Limitations and Improvements
+
+## Conclusions
+
 ## References
 
 * Kelleher J.D., Namee B.M., D'Arcy A., 2015, *Fundamentals of Machine Learning for Predictive Data Analytics*, Massachusetts Institute of Technology, USA.
