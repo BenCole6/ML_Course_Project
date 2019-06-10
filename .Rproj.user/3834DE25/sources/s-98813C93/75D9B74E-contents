@@ -1,0 +1,10 @@
+advertising_train_original <- select(advertising_train,
+                                     -contains("ln_"),
+                                     -contains("norm_"))
+
+test_norm <- normalizeFeatures(advertising_train_original,
+                               target = "y",
+                               method = "range",
+                               range = c(0,1))
+
+View(test_norm)

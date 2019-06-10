@@ -1,0 +1,9 @@
+"0","benchmark(tasks = classif_task,
+          learners = list(rpart_lrn, wrapped_lrn))
+"
+"2","Task: target_binned, Learner: classif.rpart
+"
+"2","Resampling: cross-validation
+"
+"2","Measures:             mmce      
+"
