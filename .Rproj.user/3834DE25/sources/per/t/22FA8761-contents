@@ -20,6 +20,13 @@ fontsize: 11pt
 geometry: margin=15mm
 ---
 
+```{r include=FALSE}
+
+rm(list=ls())
+gc()
+
+```
+
 \newpage
 
 # **Phase 1 - Introduction, Cleaning, and Exploration**
@@ -87,7 +94,8 @@ suppressMessages(p_load(character.only = T,
                           "gridExtra",  ## also for stacking ggplots
                           "e1071",      ## for skew and kurtosis
                           "janitor",    ## cleaning colnames
-                          "beepr")))    ## plays a beep tone
+                          "beepr",
+                          "mlr")))    ## plays a beep tone
 
 ```
 
@@ -294,11 +302,11 @@ It was observed from the plots above that natural logarithmic transformations we
 ```{r, results='hold'}
 
 advertising_train <- mutate(advertising_train,
-                            "ln_cpc" = log(cpc),
-                            "ln_ctr" = log(ctr),
-                            "ln_impr" = log(impression),
-                            "ln_req" = log(requests),
-                            "ln_y" = log(y))
+                            "ln_cpc" = log(cpc + 0.005),
+                            "ln_ctr" = log(ctr + 0.005),
+                            "ln_impr" = log(impression + 0.005),
+                            "ln_req" = log(requests + 0.005),
+                            "ln_y" = log(y + 0.005))
 
 sample_adv <- sample_n(advertising_train, 20)
 
@@ -701,7 +709,7 @@ Where $a$ is the feature, whether descriptive or target, $high$ is the highest v
 
 normalise <- function(x) {
    
-   x[is.infinite(x) == T] <- NA
+   x[is.infinite(x)] <- NA
    
    (((x - min(x, na.rm = T)) /
         (max(x, na.rm = T) - min(x, na.rm = T))) * (1 - 0) + 0)
@@ -752,13 +760,249 @@ kable_styling(kable(sample_adv[, c(1,
               font_size = 8, latex_options = c("striped"),
               full_width = T)
 
-````
+```
 
 \newpage   
 \pagebreak
+
+# **Phase 2: Algorithm Implementation**
+
+## Overview
+
+## Further Data Preparation
+
+### Checking for NA values
+
+
+```{r}
+
+num_vars <- sapply(select(advertising_train,
+                          -case_id), is.numeric)
+
+num_vars <- num_vars[which(num_vars == T)]
+
+adv_train_num_long <- gather(advertising_train,
+                             names(num_vars),
+                             key = "Variable",
+                             value = "Value")
+
+kable_styling(kable(summarise(group_by(adv_train_num_long,
+                   Variable),
+          "n finite" = sum(is.finite(Value)),
+          "n infinite" = sum(is.infinite(Value))),
+      format.args = list(big.mark = ",")),
+              font_size = 8, latex_options = c("striped"),
+              full_width = F)
+
+```
+
+### Discretising Target Feature
+
+```{r, fig.height=7, fig.width=10}
+
+advertising_train <- mutate(advertising_train,
+                            "norm_ln_y_binned" = as.factor((norm_ln_y %/% 0.2) + 1))
+
+ggplot(advertising_train) +
+  geom_bar(aes(x = norm_ln_y_binned),
+           stat = "count", bins = 10,
+           fill = "cyan3", alpha = 1/2) +
+  scale_x_discrete(limits = c(1:5),
+                   "Normalised Logarithmic Target Feature (y) Bin") +
+  scale_y_continuous(labels = comma,
+                     breaks = seq(from = 0,
+                                  to = 60000,
+                                  by = 10000),
+                     "Count") +
+  ggtitle("Frequencies of Normalised and Natural Log Transformed Target Feature Bins") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor = element_blank())
+  
+
+
+```
+
+### Subsetting Data Frame
+
+Due to constraints on computing power, it was deemed necessary to subset the data frame to a smaller number of rows.
+
+
+```{r}
+
+advertising_train_subset <- sample_n(advertising_train,
+                                     size = 1000, 
+                                     replace = F)
+
+```
+
+## Feature Selection
+
+
+```{r}
+
+
+factor_vars <- sapply(advertising_train_subset,
+                      is.factor)
+
+factor_vars <- names(factor_vars[which(factor_vars == T)])
+
+advertising_train_transformed <- select(advertising_train_subset,
+                                        case_id,
+                                        factor_vars,
+                                        contains("norm"))
+
+```
+
+```{r}
+
+classif_task <- makeClassifTask(id = "target_binned",
+                                data = advertising_train_transformed,
+                                target = "norm_ln_y_binned")
+
+```
+
+```{r}
+
+rpart_lrn <- makeLearner("classif.rpart",
+                         predict.type = "response",
+                         fix.factors.prediction = T)
+
+rpart_lrn
+
+
+
+rf_lrn <- makeLearner("classif.randomForest",
+                      predict.type = "response",
+                      fix.factors.prediction = T)
+
+rf_lrn
+
+
+
+kknn_lrn <- makeLearner("classif.kknn",
+                        predict.type = "response",
+                        fix.factors.prediction = T)
+
+kknn_lrn
+
+```
+
+### Bagging
+
+
+```{r}
+
+wrapped_lrn <- makeBaggingWrapper(rpart_lrn,
+                                  bw.iters = 100,
+                                  bw.feats = 0.5)
+
+wrapped_lrn
+
+```
+
+```{r}
+
+wrappedRpart_mod <- train(wrapped_lrn,
+                          classif_task)
+
+wrappedRpart_mod
+
+```
+
+```{r}
+
+benchmark(tasks = classif_task,
+          learners = list(rpart_lrn, wrapped_lrn))
+
+```
+
+
+### Tuning Hyperparameters
+
+
+```{r}
+
+getParamSet(wrapped_lrn)
+
+rdesc <- makeResampleDesc("CV", iters = 5)
+
+par_set <- makeParamSet(
+  makeIntegerParam("minsplit", lower = 2, upper = 10),
+  makeNumericParam("bw.feats", lower = 0.35, upper = 1)
+)
+
+ctrl <- makeTuneControlRandom(maxit = 2)
+
+tuned_lrn <- makeTuneWrapper(wrapped_lrn,
+                             rdesc,
+                             mmce,
+                             par_set,
+                             ctrl)
+
+tuned_lrn
+
+tunedBaggedTreeMod <- train(tuned_lrn,
+                            task = classif_task)
+
+```
+
+
+```{r}
+
+pred <- predict(tunedBaggedTreeMod,
+                newdata = advertising_train_transformed)
+
+performance(pred)
+
+```
+
+### Benchmarking 
+
+```{r}
+
+benchmark(tasks = classif_task,
+          learners  = list(rf_lrn,
+                           tuned_lrn,
+                           wrapped_lrn,
+                           rpart_lrn,
+                           kknn_lrn))
+
+lrn_curve <- generateLearningCurveData(task = classif_task,
+                                       learners = list(rf_lrn,
+                                                       rpart_lrn,
+                                                       kknn_lrn))
+
+```
+
+```{r}
+
+ggplot(lrn_curve$data,
+       aes(x = percentage, y = mmcc, colour = learner)) +
+  geom_point() +
+  geom_line() +
+  labs(x = "Percentage of Data Used",
+       y = "MMCE",
+       title = "Learning Curves") +
+  theme_minimal()
+  
+```
+
+
+
+## Performance Comparison
+
+## Results
+
+### Discussion
+
+#### Limitations and Improvements
+
+## Conclusions
 
 ## References
 
 * Kelleher J.D., Namee B.M., D'Arcy A., 2015, *Fundamentals of Machine Learning for Predictive Data Analytics*, Massachusetts Institute of Technology, USA.
 
 * Osborne J.W., 2010, *Improving your data transformations: Applying the Box-Cox transformation*, Practical Assessment, Research & Evaluation, V.05 No.12, <http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.470.7417&rep=rep1&type=pdfhttp://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.470.7417&rep=rep1&type=pdf>
+

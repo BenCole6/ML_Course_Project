@@ -1,0 +1,19 @@
+"0","advertising_train <- read_csv(""advertising_train.csv"")"
+"2","Parsed with column specification:
+cols(
+  .default = col_double(),
+  dow = [31mcol_character()[39m
+)
+"
+"2","See spec(...) for full column specifications.
+"
+"0","sample_adv <- sample_n(advertising_train, 20)"
+"0","kable_styling(kable(sample_adv[ , 1:(ncol(sample_adv)/2)],"
+"0","                    caption = ""Sample of Advertising Data Frame""),"
+"0","              font_size = 8.5, latex_options = c(""striped""),"
+"0","              full_width = F)"
+"2","over-long path length"
+"2","over-long path length"
+"2","over-long path length"
+"2","over-long path length"
+"2","over-long path length"
