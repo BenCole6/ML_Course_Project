@@ -1,0 +1,6 @@
+"0","do.call(what = grid.arrange,"
+"0","        args = list(grobs = density_by_lambda,"
+"0","                    top = textGrob(""Box-Cox Transformations for Each \`price\` Feature at Changing lamda Values"","
+"0","                                   gp = gpar(fontsize=16,"
+"0","                                             fontface = ""bold"")),"
+"0","                    ncol = 1))"

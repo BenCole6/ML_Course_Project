@@ -801,7 +801,7 @@ kable_styling(kable(summarise(group_by(adv_train_num_long,
 ```{r, fig.height=7, fig.width=10}
 
 advertising_train <- mutate(advertising_train,
-                            "norm_ln_y_binned" = as.factor((norm_ln_y %/% 0.2) + 1))
+                            "norm_ln_y_binned" = as.factor((norm_ln_y %/% 0.1) + 1))
 
 ggplot(advertising_train) +
   geom_bar(aes(x = norm_ln_y_binned),
@@ -850,7 +850,8 @@ factor_vars <- names(factor_vars[which(factor_vars == T)])
 advertising_train_transformed <- select(advertising_train_subset,
                                         case_id,
                                         factor_vars,
-                                        contains("norm"))
+                                        contains("norm"),
+                                        -norm_ln_y)
 
 ```
 
@@ -887,6 +888,8 @@ kknn_lrn <- makeLearner("classif.kknn",
 kknn_lrn
 
 ```
+
+
 
 ### Bagging
 
@@ -988,7 +991,14 @@ ggplot(lrn_curve$data,
   
 ```
 
+```{r}
 
+filter_vals <- generateFilterValuesData(classif_task)
+
+plotFilterValues(filter_vals) + coord_flip()
+
+
+```
 
 ## Performance Comparison
 
