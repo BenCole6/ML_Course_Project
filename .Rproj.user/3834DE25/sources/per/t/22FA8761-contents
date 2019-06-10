@@ -1,9 +1,9 @@
 ---
 title:    |
-          | Predicting Revenue from Search Engine Advertising Data
+| Predicting Revenue from Search Engine Advertising Data
 subtitle:   |
-            | MATH2319 - Machine Learning
-            | Course Project
+| MATH2319 - Machine Learning
+| Course Project
 author: "Ben Cole - s3412349"
 date: "Print Date: `r format(Sys.Date(), '%d/%m/%Y')`"
 output:
@@ -94,8 +94,9 @@ suppressMessages(p_load(character.only = T,
                           "gridExtra",  ## also for stacking ggplots
                           "e1071",      ## for skew and kurtosis
                           "janitor",    ## cleaning colnames
-                          "beepr",
-                          "mlr")))    ## plays a beep tone
+                          "beepr",      ## plays a beep tone
+                          "mlr",
+                          "FSelector")))    
 
 ```
 
@@ -200,23 +201,23 @@ advertising_train_long_cat$Variable <- as.factor(advertising_train_long_cat$Vari
 advertising_train_long_cat$Value <- as.factor(advertising_train_long_cat$Value)
 
 ggplot(advertising_train_long_cat) +
-   geom_bar(aes(x = fct_infreq(Value),
-                fill = Variable),
-            show.legend = F, alpha = 2/3) +
-   facet_rep_wrap(~Variable,
-                  repeat.tick.labels = T,
-                  scales = "free") +
-   scale_y_continuous(labels = comma,
-                      expand = c(0.01, 0),
-                      "Count") +
-   scale_x_discrete("Factor Value") +
-   scale_fill_manual(values = c("blue4", "red3", "cyan3", "yellow3")) +
-   labs(title = "Frequencies of each Value for each Categorical Variable") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank(),
-         strip.background = element_rect(fill = "aliceblue",
-                                         colour = NA))
+  geom_bar(aes(x = fct_infreq(Value),
+               fill = Variable),
+           show.legend = F, alpha = 2/3) +
+  facet_rep_wrap(~Variable,
+                 repeat.tick.labels = T,
+                 scales = "free") +
+  scale_y_continuous(labels = comma,
+                     expand = c(0.01, 0),
+                     "Count") +
+  scale_x_discrete("Factor Value") +
+  scale_fill_manual(values = c("blue4", "red3", "cyan3", "yellow3")) +
+  labs(title = "Frequencies of each Value for each Categorical Variable") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        strip.background = element_rect(fill = "aliceblue",
+                                        colour = NA))
 
 ```
 
@@ -228,19 +229,19 @@ country_labels <- levels(fct_infreq(advertising_train$countryId))[c(seq(1,
                                                                         ceiling(length(levels(fct_infreq(advertising_train$countryId)))/10)))]
 
 ggplot(advertising_train) +
-   geom_bar(aes(x = fct_infreq(countryId)),
-            fill = "red3", alpha = 2/3) +
-   scale_y_continuous(labels = comma,
-                      expand = c(0.01, 0),
-                      "Count") +
-   scale_x_discrete(breaks = country_labels,
-                    "countryId") +
-   labs(title = "Frequency of observations for each \`countryId\`",
-        subtitle = "(a categorical variable)",
-        caption = "labels along x-axis are ID numbers and not numeric/double/ordinal/etc") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank())
+  geom_bar(aes(x = fct_infreq(countryId)),
+           fill = "red3", alpha = 2/3) +
+  scale_y_continuous(labels = comma,
+                     expand = c(0.01, 0),
+                     "Count") +
+  scale_x_discrete(breaks = country_labels,
+                   "countryId") +
+  labs(title = "Frequency of observations for each \`countryId\`",
+       subtitle = "(a categorical variable)",
+       caption = "labels along x-axis are ID numbers and not numeric/double/ordinal/etc") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 
 
 ```
@@ -254,42 +255,42 @@ ggplot(advertising_train) +
 ```{r, fig.height=12, fig.width=10, results='hold'}
 
 ggplot(advertising_train_long_num) +
-   geom_density(aes(x = Value),
-                fill = "yellow",
-                alpha = 1/3) +
-   facet_rep_wrap(~Variable,
-                  repeat.tick.labels = T,
-                  scales = "free",
-                  ncol = 3) +
-   scale_y_continuous(labels = comma_format(accuracy = 0.1)) +
-   labs(title = "Density Plots of each Numeric Variable",
-        subtitle = "No transformations",
-        x = "Variable",
-        y = "Density")+
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank(),
-         strip.background = element_rect(fill = "aliceblue",
-                                         colour = NA))
+  geom_density(aes(x = Value),
+               fill = "yellow",
+               alpha = 1/3) +
+  facet_rep_wrap(~Variable,
+                 repeat.tick.labels = T,
+                 scales = "free",
+                 ncol = 3) +
+  scale_y_continuous(labels = comma_format(accuracy = 0.1)) +
+  labs(title = "Density Plots of each Numeric Variable",
+       subtitle = "No transformations",
+       x = "Variable",
+       y = "Density")+
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        strip.background = element_rect(fill = "aliceblue",
+                                        colour = NA))
 
 ggplot(advertising_train_long_num) +
-   geom_density(aes(x = log(Value)),
-                fill = "yellow",
-                alpha = 1/3) +
-   facet_rep_wrap(~Variable,
-                  repeat.tick.labels = T,
-                  scales = "free",
-                  ncol = 3) +
-   scale_y_continuous(labels = comma_format(accuracy = 0.1)) +
-   labs(title = "Density Plots of each Numeric Variable",
-        subtitle = "After applying natural logarithmic transformation",
-        x = "ln of Variable",
-        y = "Density") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank(),
-         strip.background = element_rect(fill = "aliceblue",
-                                         colour = NA))
+  geom_density(aes(x = log(Value)),
+               fill = "yellow",
+               alpha = 1/3) +
+  facet_rep_wrap(~Variable,
+                 repeat.tick.labels = T,
+                 scales = "free",
+                 ncol = 3) +
+  scale_y_continuous(labels = comma_format(accuracy = 0.1)) +
+  labs(title = "Density Plots of each Numeric Variable",
+       subtitle = "After applying natural logarithmic transformation",
+       x = "ln of Variable",
+       y = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        strip.background = element_rect(fill = "aliceblue",
+                                        colour = NA))
 
 ```
 
@@ -336,86 +337,86 @@ finite_cpc <- filter(advertising_train,
                      is.finite(ln_cpc))
 
 p_cpc <- ggplot(finite_cpc) +
-   geom_density(aes(x = ln_cpc),
-                fill = "yellow", alpha = 1/3) +
-   stat_function(geom = "path", fun = dnorm,
-                 n = 200, col = "red4", size = 1,
-                 args = list(mean(finite_cpc$ln_cpc),
-                             sd(finite_cpc$ln_cpc))) +
-   geom_vline(xintercept = mean(finite_cpc$ln_cpc),
-              col = "red4", size = 1) +
-   ylab("Density") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank())
+  geom_density(aes(x = ln_cpc),
+               fill = "yellow", alpha = 1/3) +
+  stat_function(geom = "path", fun = dnorm,
+                n = 200, col = "red4", size = 1,
+                args = list(mean(finite_cpc$ln_cpc),
+                            sd(finite_cpc$ln_cpc))) +
+  geom_vline(xintercept = mean(finite_cpc$ln_cpc),
+             col = "red4", size = 1) +
+  ylab("Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 
 finite_ctr <- filter(advertising_train,
                      is.finite(ln_ctr))
 
 p_ctr <- ggplot(finite_ctr) +
-   geom_density(aes(x = ln_ctr),
-                fill = "yellow", alpha = 1/3) +
-   stat_function(geom = "path", fun = dnorm,
-                 n = 200, col = "red4", size = 1,
-                 args = list(mean(finite_ctr$ln_ctr),
-                             sd(finite_ctr$ln_ctr))) +
-   geom_vline(xintercept = mean(finite_ctr$ln_ctr),
-              col = "red4", size = 1) +
-   ylab("Density") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank())
+  geom_density(aes(x = ln_ctr),
+               fill = "yellow", alpha = 1/3) +
+  stat_function(geom = "path", fun = dnorm,
+                n = 200, col = "red4", size = 1,
+                args = list(mean(finite_ctr$ln_ctr),
+                            sd(finite_ctr$ln_ctr))) +
+  geom_vline(xintercept = mean(finite_ctr$ln_ctr),
+             col = "red4", size = 1) +
+  ylab("Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 
 finite_impr <- filter(advertising_train,
                       is.finite(ln_impr))
 
 p_impr <- ggplot(finite_impr) +
-   geom_density(aes(x = ln_impr),
-                fill = "yellow", alpha = 1/3) +
-   stat_function(geom = "path", fun = dnorm,
-                 n = 200, col = "red4", size = 1,
-                 args = list(mean(finite_impr$ln_impr),
-                             sd(finite_impr$ln_impr))) +
-   geom_vline(xintercept = mean(finite_cpc$ln_impr),
-              col = "red4", size = 1) +
-   ylab("Density") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank())
+  geom_density(aes(x = ln_impr),
+               fill = "yellow", alpha = 1/3) +
+  stat_function(geom = "path", fun = dnorm,
+                n = 200, col = "red4", size = 1,
+                args = list(mean(finite_impr$ln_impr),
+                            sd(finite_impr$ln_impr))) +
+  geom_vline(xintercept = mean(finite_cpc$ln_impr),
+             col = "red4", size = 1) +
+  ylab("Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 
 finite_req <- filter(advertising_train,
                      is.finite(ln_req))
 
 p_req <- ggplot(finite_req) +
-   geom_density(aes(x = ln_req),
-                fill = "yellow", alpha = 1/3) +
-   stat_function(geom = "path", fun = dnorm,
-                 n = 200, col = "red4", size = 1,
-                 args = list(mean(finite_req$ln_req),
-                             sd(finite_req$ln_req))) +
-   geom_vline(xintercept = mean(finite_cpc$ln_req),
-              col = "red4", size = 1) +
-   ylab("Density") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank())
+  geom_density(aes(x = ln_req),
+               fill = "yellow", alpha = 1/3) +
+  stat_function(geom = "path", fun = dnorm,
+                n = 200, col = "red4", size = 1,
+                args = list(mean(finite_req$ln_req),
+                            sd(finite_req$ln_req))) +
+  geom_vline(xintercept = mean(finite_cpc$ln_req),
+             col = "red4", size = 1) +
+  ylab("Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 
 finite_y <- filter(advertising_train,
                    is.finite(ln_y))
 
 p_y <- ggplot(finite_y) +
-   geom_density(aes(x = ln_y),
-                fill = "yellow", alpha = 1/3) +
-   stat_function(geom = "path", fun = dnorm,
-                 n = 200, col = "red4", size = 1,
-                 args = list(mean(finite_y$ln_y),
-                             sd(finite_y$ln_y))) +
-   geom_vline(xintercept = mean(finite_cpc$ln_y),
-              col = "red4", size = 1) +
-   ylab("Density") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank())
+  geom_density(aes(x = ln_y),
+               fill = "yellow", alpha = 1/3) +
+  stat_function(geom = "path", fun = dnorm,
+                n = 200, col = "red4", size = 1,
+                args = list(mean(finite_y$ln_y),
+                            sd(finite_y$ln_y))) +
+  geom_vline(xintercept = mean(finite_cpc$ln_y),
+             col = "red4", size = 1) +
+  ylab("Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 
 ln_vars_title <- textGrob("Logarithmic Transformed Features and Comparison to Normal Curve",
                           gp = gpar(fontface = "bold"))
@@ -443,14 +444,14 @@ After transformation, grouping the `ln_ctr` distribution by level within the `co
 ```{r, fig.width=10, fig.height=7, results='hold'}
 
 ggplot(advertising_train) +
-   geom_density(aes(x = ln_ctr, fill = companyId),
-                alpha = 1/3) +
-   labs(title = "Density Plots for Logarithmic Transformed \`ctr\`",
-        subtitle = "Grouped by \`companyId\`",
-        y = "Density") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank())
+  geom_density(aes(x = ln_ctr, fill = companyId),
+               alpha = 1/3) +
+  labs(title = "Density Plots for Logarithmic Transformed \`ctr\`",
+       subtitle = "Grouped by \`companyId\`",
+       y = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 
 
 ```
@@ -460,17 +461,17 @@ Producing separate density plots for each level within `deviceType` suggested so
 ```{r, fig.height=10, fig.width=12, results='hold'}
 
 ggplot(advertising_train) +
-   geom_density(aes(x = ln_ctr, fill = companyId),
-                alpha = 1/3) +
-   facet_rep_wrap(~deviceType) +
-   labs(title = "Density Plots for Logarithmic Transformed \`ctr\` and each \`companyId\`",
-        subtitle = "Facetted by \`deviceType\`",
-        y = "Density") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank(),
-         strip.background = element_rect(fill = "aliceblue",
-                                         colour = NA))
+  geom_density(aes(x = ln_ctr, fill = companyId),
+               alpha = 1/3) +
+  facet_rep_wrap(~deviceType) +
+  labs(title = "Density Plots for Logarithmic Transformed \`ctr\` and each \`companyId\`",
+       subtitle = "Facetted by \`deviceType\`",
+       y = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        strip.background = element_rect(fill = "aliceblue",
+                                        colour = NA))
 
 ```
 
@@ -479,27 +480,27 @@ As above for `ln_ctr`, grouping by `companyId` and facetting by `deviceType` rev
 ```{r, results='hold'}
 
 ggplot(advertising_train) +
-   geom_density(aes(x = ln_cpc, fill = companyId),
-                alpha = 1/2) +
-   labs(title = "Density Plots of \`ln_cpc\`",
-        subtitle = "Grouped by \`companyId\`",
-        ylab = "Density") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank())
+  geom_density(aes(x = ln_cpc, fill = companyId),
+               alpha = 1/2) +
+  labs(title = "Density Plots of \`ln_cpc\`",
+       subtitle = "Grouped by \`companyId\`",
+       ylab = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 
 ggplot(advertising_train) +
-   geom_density(aes(x = ln_cpc, fill = companyId),
-                alpha = 1/2) +
-   facet_rep_wrap(~deviceType) +
-   labs(title = "Density Plots of \`ln_cpc\` for each \`companyId\`",
-        subtitle = "Facetted by \`deviceType\`",
-        ylab = "Density") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank(),
-         strip.background = element_rect(fill = "aliceblue",
-                                         colour = NA))
+  geom_density(aes(x = ln_cpc, fill = companyId),
+               alpha = 1/2) +
+  facet_rep_wrap(~deviceType) +
+  labs(title = "Density Plots of \`ln_cpc\` for each \`companyId\`",
+       subtitle = "Facetted by \`deviceType\`",
+       ylab = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        strip.background = element_rect(fill = "aliceblue",
+                                        colour = NA))
 
 ```
 
@@ -514,28 +515,28 @@ price_trans <- mutate(advertising_train,
                       "ln_price3" = log(price3))
 
 p_price1_trans <- ggplot(price_trans) +
-   geom_density(aes(x = ln_price1, fill = deviceType),
-                alpha = 1/3) +
-   labs(y = "Density") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank())
+  geom_density(aes(x = ln_price1, fill = deviceType),
+               alpha = 1/3) +
+  labs(y = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 
 p_price2_trans <- ggplot(price_trans) +
-   geom_density(aes(x = ln_price2, fill = deviceType),
-                alpha = 1/3) +
-   labs(y = "Density") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank())
+  geom_density(aes(x = ln_price2, fill = deviceType),
+               alpha = 1/3) +
+  labs(y = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 
 p_price3_trans <- ggplot(price_trans) +
-   geom_density(aes(x = ln_price3, fill = deviceType),
-                alpha = 1/3) +
-   labs(y = "Density") +
-   theme_minimal() +
-   theme(panel.grid.major.x = element_blank(),
-         panel.grid.minor.x = element_blank())
+  geom_density(aes(x = ln_price3, fill = deviceType),
+               alpha = 1/3) +
+  labs(y = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
 
 
 price_vars_title <- textGrob("Logarithmic Transformed Price Features",
@@ -565,57 +566,57 @@ Box-Cox transformations with a range of lamda values also did not convert the pr
 ```{r eval=FALSE, fig.height=8, fig.width=15}
 
 boxcox <- function(x, lambda = 1) {
-   
-   (x^(lambda) - 1 /
-       (lambda))
-   
+  
+  (x^(lambda) - 1 /
+     (lambda))
+  
 }
 
 box_grobs_2 <- list()
 box_grobs_higher <- list()
 
 for (i in 1:length(seq(0.025, 0.3, 0.025))) {
-   
-   j <- seq(0.025, 0.3, 0.025)[i]
-   
-   boxcox_price <- mutate(advertising_train,
-                          "bc_price1" = boxcox(x = price1,
-                                               lambda = j),
-                          "bc_price2" = boxcox(x = price2,
-                                               lambda = j),
-                          "bc_price3" = boxcox(x = price3,
-                                               lambda = j))
-   
-   bc_colnames <- colnames(boxcox_price)[str_detect(colnames(boxcox_price), "bc_price")]
-   
-   for (k in bc_colnames) {
-      
-      m <- which(bc_colnames %in% k)
-      
-      box_grobs_2[[m]] <- ggplot(select(boxcox_price,
-                                        k, deviceType)) +
-         geom_density(aes(x = .data[[k]], fill = deviceType),
-                      alpha = 1/3) +
-         labs(title = paste("Lambda = ", j)) +
-         ylab("Density") + xlab(k) +
-         theme_minimal() +
-         theme(panel.grid.major.x = element_blank(),
-               panel.grid.minor.x = element_blank())
-      
-   }
-   
-   box_grobs_higher[[i]] <- box_grobs_2
-   
+  
+  j <- seq(0.025, 0.3, 0.025)[i]
+  
+  boxcox_price <- mutate(advertising_train,
+                         "bc_price1" = boxcox(x = price1,
+                                              lambda = j),
+                         "bc_price2" = boxcox(x = price2,
+                                              lambda = j),
+                         "bc_price3" = boxcox(x = price3,
+                                              lambda = j))
+  
+  bc_colnames <- colnames(boxcox_price)[str_detect(colnames(boxcox_price), "bc_price")]
+  
+  for (k in bc_colnames) {
+    
+    m <- which(bc_colnames %in% k)
+    
+    box_grobs_2[[m]] <- ggplot(select(boxcox_price,
+                                      k, deviceType)) +
+      geom_density(aes(x = .data[[k]], fill = deviceType),
+                   alpha = 1/3) +
+      labs(title = paste("Lambda = ", j)) +
+      ylab("Density") + xlab(k) +
+      theme_minimal() +
+      theme(panel.grid.major.x = element_blank(),
+            panel.grid.minor.x = element_blank())
+    
+  }
+  
+  box_grobs_higher[[i]] <- box_grobs_2
+  
 }
 
 density_by_lambda <- list()
 
 for (i in 1:12) {
-   
-   density_by_lambda[[i]] <-  do.call(what = grid.arrange,
-                                      args = list(grobs = box_grobs_higher[[i]],
-                                                  nrow = 1))
-   
+  
+  density_by_lambda[[i]] <-  do.call(what = grid.arrange,
+                                     args = list(grobs = box_grobs_higher[[i]],
+                                                 nrow = 1))
+  
 } 
 
 ```
@@ -624,57 +625,57 @@ for (i in 1:12) {
 ```{r, fig.height=8, fig.width=15, include=FALSE, results='hide'}
 
 boxcox <- function(x, lambda = 1) {
-   
-   (x^(lambda) - 1 /
-       (lambda))
-   
+  
+  (x^(lambda) - 1 /
+     (lambda))
+  
 }
 
 box_grobs_2 <- list()
 box_grobs_higher <- list()
 
 for (i in 1:length(seq(0.025, 0.3, 0.025))) {
-   
-   j <- seq(0.025, 0.3, 0.025)[i]
-   
-   boxcox_price <- mutate(advertising_train,
-                          "bc_price1" = boxcox(x = price1,
-                                               lambda = j),
-                          "bc_price2" = boxcox(x = price2,
-                                               lambda = j),
-                          "bc_price3" = boxcox(x = price3,
-                                               lambda = j))
-   
-   bc_colnames <- colnames(boxcox_price)[str_detect(colnames(boxcox_price), "bc_price")]
-   
-   for (k in bc_colnames) {
-      
-      m <- which(bc_colnames %in% k)
-      
-      box_grobs_2[[m]] <- ggplot(select(boxcox_price,
-                                        k, deviceType)) +
-         geom_density(aes(x = .data[[k]], fill = deviceType),
-                      alpha = 1/3) +
-         labs(title = paste("Lambda = ", j)) +
-         ylab("Density") + xlab(k) +
-         theme_minimal() +
-         theme(panel.grid.major.x = element_blank(),
-               panel.grid.minor.x = element_blank())
-      
-   }
-   
-   box_grobs_higher[[i]] <- box_grobs_2
-   
+  
+  j <- seq(0.025, 0.3, 0.025)[i]
+  
+  boxcox_price <- mutate(advertising_train,
+                         "bc_price1" = boxcox(x = price1,
+                                              lambda = j),
+                         "bc_price2" = boxcox(x = price2,
+                                              lambda = j),
+                         "bc_price3" = boxcox(x = price3,
+                                              lambda = j))
+  
+  bc_colnames <- colnames(boxcox_price)[str_detect(colnames(boxcox_price), "bc_price")]
+  
+  for (k in bc_colnames) {
+    
+    m <- which(bc_colnames %in% k)
+    
+    box_grobs_2[[m]] <- ggplot(select(boxcox_price,
+                                      k, deviceType)) +
+      geom_density(aes(x = .data[[k]], fill = deviceType),
+                   alpha = 1/3) +
+      labs(title = paste("Lambda = ", j)) +
+      ylab("Density") + xlab(k) +
+      theme_minimal() +
+      theme(panel.grid.major.x = element_blank(),
+            panel.grid.minor.x = element_blank())
+    
+  }
+  
+  box_grobs_higher[[i]] <- box_grobs_2
+  
 }
 
 density_by_lambda <- list()
 
 for (i in 1:12) {
-   
-   density_by_lambda[[i]] <-  do.call(what = grid.arrange,
-                                      args = list(grobs = box_grobs_higher[[i]],
-                                                  nrow = 1))
-   
+  
+  density_by_lambda[[i]] <-  do.call(what = grid.arrange,
+                                     args = list(grobs = box_grobs_higher[[i]],
+                                                 nrow = 1))
+  
 } 
 
 ```
@@ -708,12 +709,12 @@ Where $a$ is the feature, whether descriptive or target, $high$ is the highest v
 ```{r}
 
 normalise <- function(x) {
-   
-   x[is.infinite(x)] <- NA
-   
-   (((x - min(x, na.rm = T)) /
-        (max(x, na.rm = T) - min(x, na.rm = T))) * (1 - 0) + 0)
-   
+  
+  x[is.infinite(x)] <- NA
+  
+  (((x - min(x, na.rm = T)) /
+      (max(x, na.rm = T) - min(x, na.rm = T))) * (1 - 0) + 0)
+  
 }
 
 num_feats <- select(advertising_train,
@@ -721,13 +722,13 @@ num_feats <- select(advertising_train,
                     which(sapply(advertising_train, class)=="numeric"))
 
 for ( i in colnames(num_feats)) {
-   
-   newfeat <- paste0("norm_", i)
-   
-   advertising_train[[newfeat]] <- normalise(num_feats[[i]])
-   
-   advertising_train[[newfeat]][is.na(advertising_train[[newfeat]])] <- advertising_train[[i]]
-   
+  
+  newfeat <- paste0("norm_", i)
+  
+  advertising_train[[newfeat]] <- normalise(num_feats[[i]])
+  
+  advertising_train[[newfeat]][is.na(advertising_train[[newfeat]])] <- advertising_train[[i]]
+  
 }
 
 
@@ -787,10 +788,10 @@ adv_train_num_long <- gather(advertising_train,
                              value = "Value")
 
 kable_styling(kable(summarise(group_by(adv_train_num_long,
-                   Variable),
-          "n finite" = sum(is.finite(Value)),
-          "n infinite" = sum(is.infinite(Value))),
-      format.args = list(big.mark = ",")),
+                                       Variable),
+                              "n finite" = sum(is.finite(Value)),
+                              "n infinite" = sum(is.infinite(Value))),
+                    format.args = list(big.mark = ",")),
               font_size = 8, latex_options = c("striped"),
               full_width = F)
 
@@ -818,7 +819,7 @@ ggplot(advertising_train) +
   theme_minimal() +
   theme(panel.grid.major.x = element_blank(),
         panel.grid.minor = element_blank())
-  
+
 
 
 ```
@@ -831,7 +832,7 @@ Due to constraints on computing power, it was deemed necessary to subset the dat
 ```{r}
 
 advertising_train_subset <- sample_n(advertising_train,
-                                     size = 1000, 
+                                     size = 5000,
                                      replace = F)
 
 ```
@@ -840,7 +841,6 @@ advertising_train_subset <- sample_n(advertising_train,
 
 
 ```{r}
-
 
 factor_vars <- sapply(advertising_train_subset,
                       is.factor)
@@ -851,7 +851,8 @@ advertising_train_transformed <- select(advertising_train_subset,
                                         case_id,
                                         factor_vars,
                                         contains("norm"),
-                                        -norm_ln_y)
+                                        -norm_ln_y,
+                                        -norm_y)
 
 ```
 
@@ -889,114 +890,128 @@ kknn_lrn
 
 ```
 
-
-
-### Bagging
-
+### Filter Methods
 
 ```{r}
 
-wrapped_lrn <- makeBaggingWrapper(rpart_lrn,
-                                  bw.iters = 100,
-                                  bw.feats = 0.5)
+filter_vals <- generateFilterValuesData(classif_task)
 
-wrapped_lrn
+plotFilterValues(filter_vals) +
+  coord_flip()+
+  theme_minimal() +
+  theme(panel.grid.major.y = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(colour = "turquoise3",
+                                    fill = NA),
+        title = element_text(face = "bold"))
+
 
 ```
 
 ```{r}
 
-wrappedRpart_mod <- train(wrapped_lrn,
-                          classif_task)
+m_filter_vals <- generateFilterValuesData(classif_task,
+                                          method = c("FSelector_information.gain",
+                                                     "FSelector_chi.squared"))
 
-wrappedRpart_mod
+plotFilterValues(m_filter_vals) +
+  coord_flip() +
+  theme_minimal() +
+  theme(panel.grid.major.y = element_blank(),
+        panel.grid.minor = element_blank(),
+        strip.background = element_rect(fill = "#baedff",
+                                        colour = NA),
+        strip.text = element_text(face = "bold"),
+        panel.border = element_rect(colour = "turquoise3",
+                                    fill = NA),
+        title = element_text(face = "bold"))
 
 ```
 
 ```{r}
 
-benchmark(tasks = classif_task,
-          learners = list(rpart_lrn, wrapped_lrn))
+filtered_task1 <- filterFeatures(classif_task,
+                                 abs = 5)
+
+filtered_task1
+
+
+filtered_task2 <- filterFeatures(classif_task,
+                                 fval = filter_vals,
+                                 perc = 0.6)
+
+filtered_task2
+
+filtered_task3 <- filterFeatures(classif_task,
+                                 fval = filter_vals,
+                                 threshold = 0.01)
+
+filtered_task3
+
+
+```
+
+```{r}
+
+lrn <- makeFilterWrapper(learner = "classif.kknn",
+                         fw.method = "FSelector_chi.squared")
+
+param_set <- makeParamSet(makeDiscreteParam("fw.perc",
+                                     values = seq(0.2,
+                                                  0.5,
+                                                  0.05)))
+
+rdesc <- makeResampleDesc("CV", iters = 3)
+
+res <- tuneParams(lrn,
+                  task = classif_task,
+                  resampling = rdesc,
+                  par.set = param_set,
+                  control = makeTuneControlGrid())
+
+
+paste("The optimal percentage is:",
+      res$x )
+
+paste("The misclassification error is:",
+      res$y)
+
+random_Ctrl <- makeFeatSelControlRandom(maxit = 10L)
+
+rdesc2 <- makeResampleDesc("CV", iters = 3)
+
+sfeats <- selectFeatures(learner = "classif.kknn",
+                         task = classif_task,
+                         resampling = rdesc2,
+                         control = random_Ctrl,
+                         show.info = F)
+
+sfeats$x
+
+sfeats$y
 
 ```
 
 
 ### Tuning Hyperparameters
 
-
 ```{r}
 
-getParamSet(wrapped_lrn)
+fusedLrn <- makeFilterWrapper(learner = "classif.kknn",
+                              fw.method = "chi.squared",
+                              fw.perc = res$x$fw.perc)
 
-rdesc <- makeResampleDesc("CV", iters = 5)
+fused_Model <- train(fusedLrn,
+                     classif_task)
 
-par_set <- makeParamSet(
-  makeIntegerParam("minsplit", lower = 2, upper = 10),
-  makeNumericParam("bw.feats", lower = 0.35, upper = 1)
-)
+prediction <- predict(fused_Model,
+                      newdata = advertising_train)
 
-ctrl <- makeTuneControlRandom(maxit = 2)
+prediction
 
-tuned_lrn <- makeTuneWrapper(wrapped_lrn,
-                             rdesc,
-                             mmce,
-                             par_set,
-                             ctrl)
+performance(prediction)
 
-tuned_lrn
-
-tunedBaggedTreeMod <- train(tuned_lrn,
-                            task = classif_task)
-
-```
-
-
-```{r}
-
-pred <- predict(tunedBaggedTreeMod,
-                newdata = advertising_train_transformed)
-
-performance(pred)
-
-```
-
-### Benchmarking 
-
-```{r}
-
-benchmark(tasks = classif_task,
-          learners  = list(rf_lrn,
-                           tuned_lrn,
-                           wrapped_lrn,
-                           rpart_lrn,
-                           kknn_lrn))
-
-lrn_curve <- generateLearningCurveData(task = classif_task,
-                                       learners = list(rf_lrn,
-                                                       rpart_lrn,
-                                                       kknn_lrn))
-
-```
-
-```{r}
-
-ggplot(lrn_curve$data,
-       aes(x = percentage, y = mmcc, colour = learner)) +
-  geom_point() +
-  geom_line() +
-  labs(x = "Percentage of Data Used",
-       y = "MMCE",
-       title = "Learning Curves") +
-  theme_minimal()
-  
-```
-
-```{r}
-
-filter_vals <- generateFilterValuesData(classif_task)
-
-plotFilterValues(filter_vals) + coord_flip()
-
+beep(2)
 
 ```
 

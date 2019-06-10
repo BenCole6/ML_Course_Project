@@ -1,5 +1,5 @@
 "0","advertising_train <- mutate(advertising_train,"
-"0","                            ""norm_ln_y_binned"" = as.factor((norm_ln_y %/% 0.2) + 1))"
+"0","                            ""norm_ln_y_binned"" = as.factor((norm_ln_y %/% 0.1) + 1))"
 "0","ggplot(advertising_train) +"
 "0","  geom_bar(aes(x = norm_ln_y_binned),"
 "0","           stat = ""count"", bins = 10,"

@@ -14,5 +14,6 @@
 "0","                          ""gridExtra"",  ## also for stacking ggplots"
 "0","                          ""e1071"",      ## for skew and kurtosis"
 "0","                          ""janitor"",    ## cleaning colnames"
-"0","                          ""beepr"","
-"0","                          ""mlr"")))    ## plays a beep tone"
+"0","                          ""beepr"",      ## plays a beep tone"
+"0","                          ""mlr"","
+"0","                          ""FSelector"")))    "

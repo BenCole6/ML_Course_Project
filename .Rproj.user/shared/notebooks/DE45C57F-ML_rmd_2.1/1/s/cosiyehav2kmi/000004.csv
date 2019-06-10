@@ -1,0 +1,91 @@
+"2","
+"
+"2","With control class: TuneControlGrid
+"
+"2","Imputation value: 1
+"
+"2","[Tune-x] 1: fw.perc=0.2
+"
+"2","[Tune-y] 1: mmce.test.mean=0.6510017; time: 0.1 min
+"
+"2","[Tune-x] 2: fw.perc=0.25
+"
+"2","[Tune-y] 2: mmce.test.mean=0.6416022; time: 0.1 min
+"
+"2","[Tune-x] 3: fw.perc=0.3
+"
+"2","[Tune-y] 3: mmce.test.mean=0.6318007; time: 0.1 min
+"
+"2","[Tune-x] 4: fw.perc=0.35
+"
+"2","[Tune-y] 4: mmce.test.mean=0.6217986; time: 0.1 min
+"
+"2","[Tune-x] 5: fw.perc=0.4
+"
+"2","[Tune-y] 5: mmce.test.mean=0.6111996; time: 0.1 min
+"
+"2","[Tune-x] 6: fw.perc=0.45
+"
+"2","[Tune-y] 6: mmce.test.mean=0.6062023; time: 0.1 min
+"
+"2","[Tune-x] 7: fw.perc=0.5
+"
+"2","[Tune-y] 7: mmce.test.mean=0.6068022; time: 0.1 min
+"
+"2","[Tune] Result: fw.perc=0.45 : mmce.test.mean=0.6062023
+"
+"0","paste(""The optimal percentage is:"","
+"0","      res$x )"
+"1","[1]"
+"1"," ""The optimal percentage is: 0.45"""
+"1","
+"
+"0","paste(""The misclassification error is:"","
+"0","      res$y)"
+"1","[1]"
+"1"," ""The misclassification error is: 0.606202288953974"""
+"1","
+"
+"0","random_Ctrl <- makeFeatSelControlRandom(maxit = 10L)"
+"0","rdesc2 <- makeResampleDesc(""CV"", iters = 3)"
+"0","sfeats <- selectFeatures(learner = ""classif.kknn"","
+"0","                         task = classif_task,"
+"0","                         resampling = rdesc2,"
+"0","                         control = random_Ctrl,"
+"0","                         show.info = F)"
+"0","sfeats$x"
+"1"," [1]"
+"1"," ""countryId""      "
+"1"," ""norm_price1""    "
+"1"," ""norm_price2""    "
+"1","
+"
+"1"," [4]"
+"1"," ""norm_ad_area""   "
+"1"," ""norm_ad_ratio""  "
+"1"," ""norm_requests""  "
+"1","
+"
+"1"," [7]"
+"1"," ""norm_impression"""
+"1"," ""norm_cpc""       "
+"1"," ""norm_ctr""       "
+"1","
+"
+"1","[10]"
+"1"," ""norm_ratio1""    "
+"1"," ""norm_ratio2""    "
+"1"," ""norm_ln_ctr""    "
+"1","
+"
+"1","[13]"
+"1"," ""norm_ln_req""    "
+"1","
+"
+"0","sfeats$y"
+"1","mmce.test.mean "
+"1","
+"
+"1","     0.6378003 "
+"1","
+"
