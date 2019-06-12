@@ -1,6 +1,0 @@
-"0","classif_task <- makeClassifTask(id = ""target_binned"","
-"0","                                data = advertising_train_transformed,"
-"0","                                target = ""norm_ln_y_binned"")"
-"2","Target column 'norm_ln_y_binned' contains empty factor levels"
-"2","Empty factor levels were dropped for columns: countryId"
-"2","Provided data is not a pure data.frame but from class spec_tbl_df, hence it will be converted."

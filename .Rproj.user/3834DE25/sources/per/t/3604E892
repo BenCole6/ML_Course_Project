@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1560229525410.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3600158425",
+    "id" : "3604E892",
+    "lastKnownWriteTime" : 1560304828,
+    "last_content_update" : 1560304828163,
+    "path" : "~/RMIT/2019 RMIT SEM 1/MACHINE LEARNING/Assignemnt Phase 1.1/ML_Course_Project/Decision Tree.R",
+    "project_path" : "Decision Tree.R",
+    "properties" : {
+        "cursorPosition" : "13,16",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

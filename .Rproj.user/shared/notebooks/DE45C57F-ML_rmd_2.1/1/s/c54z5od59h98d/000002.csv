@@ -1,3 +1,0 @@
-"0","advertising_train_subset <- sample_n(advertising_train,"
-"0","                                     size = 5000,"
-"0","                                     replace = F)"
