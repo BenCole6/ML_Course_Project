@@ -1,0 +1,5 @@
+"0","kable_styling(kable(sample_adv[ , ceiling(ncol(sample_adv)/2) : ncol(sample_adv)],"
+"0","                    format.args = list(big.mark = "",""),"
+"0","                    caption = ""Transformed Data Frame (2/2)""),"
+"0","              font_size = 10, bootstrap_options = c(""striped""),"
+"0","              full_width = F)"

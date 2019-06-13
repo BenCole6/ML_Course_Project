@@ -1,0 +1,3 @@
+"0","filtered_task <- filterFeatures(classif_task,"
+"0","                                fval = filter_vals,"
+"0","                                perc = 0.4)"

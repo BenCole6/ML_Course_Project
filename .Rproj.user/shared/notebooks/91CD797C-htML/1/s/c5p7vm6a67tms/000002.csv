@@ -1,0 +1,7 @@
+"0","advertising_train_subset <- sample_n(advertising_train,"
+"0","                                     size = 1998,"
+"0","                                     replace = F)"
+"0","advertising_train_subset <- rbind(advertising_train_subset,"
+"0","                                  filter(advertising_train,"
+"0","                                         norm_ln_y == max(norm_ln_y) |"
+"0","                                           norm_ln_y == min(norm_ln_y)))"

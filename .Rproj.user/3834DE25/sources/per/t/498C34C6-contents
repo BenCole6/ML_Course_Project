@@ -1,0 +1,1103 @@
+---
+title:    |
+          | Predicting Revenue from Search Engine Advertising Data
+subtitle:   |
+            | MATH2319 - Machine Learning
+            | Course Project
+author: "Ben Cole - s3412349"
+date: "Print Date: `r format(Sys.Date(), '%d/%m/%Y')`"
+mainfont: Arial Nova
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+    code_folding: show
+    
+
+---
+
+```{r include=FALSE}
+
+rm(list=ls())
+gc()
+
+```
+
+\newpage
+
+# **Phase 1 - Introduction, Cleaning, and Exploration**
+
+## Outline
+
+The prescribed data set contained advertising metrics provided by a prominent search engine. The data contained several descriptive features pertaining to a range of information. Finally, the target feature was a measure of revenue associated with each of the observations.  
+The dataset was used to create a supervised machine learning model to predict values for the target feature.
+Phase 1 of this report contains the introduction, cleaning, and exploration of the dataset. Phase 2 contains the creation, training, and deployment of the machine learning algorithm.    
+
+### Nature of the Data
+
+The below is an exerpt from accompanying documentation about the dataset.
+
+Features in this data set are as follows:
+
+*   companyId: Company ID of record (categorical)
+*   countryId: Country ID of record (categorical)
+*   deviceType: Device type of record (categorical corresponding to desktop, mobile,
+tablet)
+*   day: Day of record (integer between 1 (oldest) and 30 for train, 31 and 35 (most
+recent) for test)
+*   dow: Day of week of the record (categorical)
+*   price1, price2, price3: Price combination for the record set by the company (numeric)
+*   ad_area: area of advertisement (numeric)
+*   ad_ratio: ratio of advertisement’s length to its width (numeric)
+*   requests, impression, cpc, ctr, viewability: Various metrics related to the record
+(numeric)
+*   ratio1, …, ratio5: Ratio characteristics related to the record (numeric)
+*   y (target feature): revenue-related metric (numeric)
+
+
+#### Target Feature
+
+The column/variable **y** was selected as the target feature in the dataset.    
+
+#### Descriptive Features
+
+All other columns/variables in the dataset, as outlined above, were chosen as descriptive features.    
+
+\newpage
+
+## Data Processing
+
+### Libraries
+
+The following libraries were used in the below data processing and exploration.    
+
+```{r}
+library(pacman)                         ## for loading multiple packages
+suppressMessages(p_load(character.only = T,
+                        install = T,
+                        c("tidyverse",  ## thanks Hadley
+                          "lubridate",  ## for handling dates
+                          "forcats",    ## for categorial variables, not for felines
+                          "zoo",        ## some data cleaning capabilities
+                          "lemon",      ## add ons for ggplot
+                          "rvest",      ## scraping web pages
+                          "knitr",      ## knitting to RMarkdown
+                          "kableExtra", ## add ons for knitr tables
+                          "scales",     ## quick and easy formatting prettynums
+                          "grid",       ## for stacking ggplots
+                          "gridExtra",  ## also for stacking ggplots
+                          "e1071",      ## for skew and kurtosis
+                          "janitor",    ## cleaning colnames
+                          "beepr",      ## plays a beep tone
+                          "mlr",
+                          "FSelector")))    
+```
+
+\newpage
+
+### Loading Data
+
+The prescribed data was made available in comma separated value file format.    
+
+```{r}
+advertising_train <- read_csv("advertising_train.csv")
+sample_adv <- sample_n(advertising_train, 20)
+kable_styling(kable(sample_adv[ , 1:(ncol(sample_adv)/2)],
+                    caption = "Sample of Advertising Data Frame"),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = F)
+kable_styling(kable(sample_adv[ , c(1, ((ncol(sample_adv)/2)+1):ncol(sample_adv))],
+                    caption = "Sample of Advertising Data Frame (cont)"),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = F)
+```
+
+### Classifying Data
+
+R and `dplyr` parse data files to guessed data types when loaded. Typically, columns with text are parsed as `character` type, columns with digits are parsed as `numeric`, and boolean columns are parsed as `logical`. Per the above feature definitions, the categorical data was re-classified as `factor`s.    
+
+```{r}
+advertising_train$companyId <- as.factor(advertising_train$companyId)
+advertising_train$countryId <- as.factor(advertising_train$countryId)
+advertising_train$deviceType <- as.factor(advertising_train$deviceType)
+advertising_train$dow <- as.factor(advertising_train$dow)
+sapply(advertising_train, class)
+```
+
+### Descriptive Statistics    
+
+#### Numeric Features    
+
+The below table outlines basic descriptive statistics about the centre and spread of the data for each of the numeric descriptive features, and numeric target feature. This table indicates that the numeric features each had distributions of different shapes and locations.    
+
+```{r, results='hold'}
+
+advertising_train_long_num <- select(advertising_train,
+                                     colnames(advertising_train),
+                                     -case_id, -countryId,
+                                     -companyId, -deviceType,
+                                     -dow)
+
+advertising_train_long_num <- gather(advertising_train_long_num,
+                                     key = "Variable",
+                                     value = "Value")
+
+summary_adv_num <- summarise(group_by(advertising_train_long_num,
+                                      Variable),
+                             "Mean" = mean(Value, na.rm = T),
+                             "Std Dev" = sd(Value, na.rm = T),
+                             "Min" = min(Value, na.rm = T),
+                             "Q1" = quantile(Value, 0.25, na.rm = T),
+                             "Median" = median(Value, na.rm = T),
+                             "Q3" = quantile(Value, 0.75, na.rm = T),
+                             "Max" = max(Value, na.rm = T),
+                             "Number of NA" = sum(is.na(Value)))
+
+kable_styling(kable(summary_adv_num,
+                    digits = 3, format.args = list(nsmall = 3,
+                                                   scientific = F,
+                                                   big.mark = ","),
+                    caption = "Summary Statistics of Numeric Variables"),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = F)
+```
+
+#### Categorical and Non-Numeric Features    
+
+When examining the frequencies of individual levels of each Categorical (non-numeric) descriptive feature, variability was observed in `companyId`, `countryId`, and `deviceType`. Far less variability in frequencies was observed in `dow`, with Sunday being the only day of the week to return a markedly lower frequency.
+
+```{r, fig.width=10, fig.height=8, results='hold'}
+advertising_train_long_cat <- select(advertising_train,
+                                     countryId,
+                                     companyId, deviceType,
+                                     dow)
+advertising_train_long_cat <- gather(advertising_train_long_cat,
+                                     key = "Variable",
+                                     value = "Value")
+advertising_train_long_cat$Variable <- as.factor(advertising_train_long_cat$Variable)
+advertising_train_long_cat$Value <- as.factor(advertising_train_long_cat$Value)
+ggplot(advertising_train_long_cat) +
+  geom_bar(aes(x = fct_infreq(Value),
+               fill = Variable),
+           show.legend = F, alpha = 2/3) +
+  facet_rep_wrap(~Variable,
+                 repeat.tick.labels = T,
+                 scales = "free") +
+  scale_y_continuous(labels = comma,
+                     expand = c(0.01, 0),
+                     "Count") +
+  scale_x_discrete("Factor Value") +
+  scale_fill_manual(values = c("blue4", "red3", "cyan3", "yellow3")) +
+  labs(title = "Frequencies of each Value for each Categorical Variable") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        strip.background = element_rect(fill = "aliceblue",
+                                        colour = NA))
+```
+
+
+```{r, fig.width=10, fig.height=6, results='hold'}
+country_labels <- levels(fct_infreq(advertising_train$countryId))[c(seq(1,
+                                                                        length(levels(fct_infreq(advertising_train$countryId))),
+                                                                        ceiling(length(levels(fct_infreq(advertising_train$countryId)))/10)))]
+ggplot(advertising_train) +
+  geom_bar(aes(x = fct_infreq(countryId)),
+           fill = "red3", alpha = 2/3) +
+  scale_y_continuous(labels = comma,
+                     expand = c(0.01, 0),
+                     "Count") +
+  scale_x_discrete(breaks = country_labels,
+                   "countryId") +
+  labs(title = "Frequency of observations for each \`countryId\`",
+       subtitle = "(a categorical variable)",
+       caption = "labels along x-axis are ID numbers and not numeric/double/ordinal/etc") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+```
+
+\newpage
+
+### Univariate Plots
+
+#### Numeric Variables
+
+```{r, fig.height=12, fig.width=10, results='hold'}
+ggplot(advertising_train_long_num) +
+  geom_density(aes(x = Value),
+               fill = "yellow",
+               alpha = 1/3) +
+  facet_rep_wrap(~Variable,
+                 repeat.tick.labels = T,
+                 scales = "free",
+                 ncol = 3) +
+  scale_y_continuous(labels = comma_format(accuracy = 0.1)) +
+  labs(title = "Density Plots of each Numeric Variable",
+       subtitle = "No transformations",
+       x = "Variable",
+       y = "Density")+
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        strip.background = element_rect(fill = "aliceblue",
+                                        colour = NA))
+ggplot(advertising_train_long_num) +
+  geom_density(aes(x = log(Value)),
+               fill = "yellow",
+               alpha = 1/3) +
+  facet_rep_wrap(~Variable,
+                 repeat.tick.labels = T,
+                 scales = "free",
+                 ncol = 3) +
+  scale_y_continuous(labels = comma_format(accuracy = 0.1)) +
+  labs(title = "Density Plots of each Numeric Variable",
+       subtitle = "After applying natural logarithmic transformation",
+       x = "ln of Variable",
+       y = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        strip.background = element_rect(fill = "aliceblue",
+                                        colour = NA))
+```
+
+
+#### Logarithmic Transformations
+
+It was observed from the plots above that natural logarithmic transformations were applicable for descriptive features `cpc`, `impression`, and potentially `ctr`. Target feature `y` was also suitable for a logarithmic transformation.    
+
+
+```{r, results='hold'}
+advertising_train <- mutate(advertising_train,
+                            "ln_cpc" = log(cpc + 0.005),
+                            "ln_ctr" = log(ctr + 0.005),
+                            "ln_impr" = log(impression + 0.005),
+                            "ln_req" = log(requests + 0.005),
+                            "ln_y" = log(y + 0.005))
+sample_adv <- sample_n(advertising_train, 20)
+kable_styling(kable(sample_adv[ , 1 : floor(ncol(sample_adv)/2) ],
+                    format.args = list(digits = 3),
+                    caption = "Sample of advertising\\_train Data Frame After Logarithmic Transformations"),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = F)
+kable_styling(kable(sample_adv[ , c(1, seq(from = floor(ncol(sample_adv)/2)+1,
+                                           to = ncol(sample_adv),
+                                           by = 1))],
+                    format.args = list(digits = 3),
+                    caption = "Sample of advertising\\_train Data Frame After Logarithmic Transformations (cont)"),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = F)
+```
+
+#### Comparison of Transformed Features to Normal Curve
+
+As the logarithmic transformation resulted in infinite values, the data frame was trimmed to only include finite values. The finite data frame was then used to calculate the centre and spread of `ln_cpc`, `ln_ctr`, `ln_impr`, `ln_req`, and `ln_y`.
+
+```{r, fig.height=10, fig.width=12, results='hold'}
+finite_cpc <- filter(advertising_train,
+                     is.finite(ln_cpc))
+p_cpc <- ggplot(finite_cpc) +
+  geom_density(aes(x = ln_cpc),
+               fill = "yellow", alpha = 1/3) +
+  stat_function(geom = "path", fun = dnorm,
+                n = 200, col = "red4", size = 1,
+                args = list(mean(finite_cpc$ln_cpc),
+                            sd(finite_cpc$ln_cpc))) +
+  geom_vline(xintercept = mean(finite_cpc$ln_cpc),
+             col = "red4", size = 1) +
+  ylab("Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+finite_ctr <- filter(advertising_train,
+                     is.finite(ln_ctr))
+p_ctr <- ggplot(finite_ctr) +
+  geom_density(aes(x = ln_ctr),
+               fill = "yellow", alpha = 1/3) +
+  stat_function(geom = "path", fun = dnorm,
+                n = 200, col = "red4", size = 1,
+                args = list(mean(finite_ctr$ln_ctr),
+                            sd(finite_ctr$ln_ctr))) +
+  geom_vline(xintercept = mean(finite_ctr$ln_ctr),
+             col = "red4", size = 1) +
+  ylab("Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+finite_impr <- filter(advertising_train,
+                      is.finite(ln_impr))
+p_impr <- ggplot(finite_impr) +
+  geom_density(aes(x = ln_impr),
+               fill = "yellow", alpha = 1/3) +
+  stat_function(geom = "path", fun = dnorm,
+                n = 200, col = "red4", size = 1,
+                args = list(mean(finite_impr$ln_impr),
+                            sd(finite_impr$ln_impr))) +
+  geom_vline(xintercept = mean(finite_cpc$ln_impr),
+             col = "red4", size = 1) +
+  ylab("Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+finite_req <- filter(advertising_train,
+                     is.finite(ln_req))
+p_req <- ggplot(finite_req) +
+  geom_density(aes(x = ln_req),
+               fill = "yellow", alpha = 1/3) +
+  stat_function(geom = "path", fun = dnorm,
+                n = 200, col = "red4", size = 1,
+                args = list(mean(finite_req$ln_req),
+                            sd(finite_req$ln_req))) +
+  geom_vline(xintercept = mean(finite_cpc$ln_req),
+             col = "red4", size = 1) +
+  ylab("Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+finite_y <- filter(advertising_train,
+                   is.finite(ln_y))
+p_y <- ggplot(finite_y) +
+  geom_density(aes(x = ln_y),
+               fill = "yellow", alpha = 1/3) +
+  stat_function(geom = "path", fun = dnorm,
+                n = 200, col = "red4", size = 1,
+                args = list(mean(finite_y$ln_y),
+                            sd(finite_y$ln_y))) +
+  geom_vline(xintercept = mean(finite_cpc$ln_y),
+             col = "red4", size = 1) +
+  ylab("Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+ln_vars_title <- textGrob("Logarithmic Transformed Features and Comparison to Normal Curve",
+                          gp = gpar(fontface = "bold"))
+grid.arrange(top = ln_vars_title,
+             p_cpc, p_ctr,
+             p_impr, p_req,
+             p_y,
+             layout_matrix = matrix(c(1,1,2,2,
+                                      3,3,4,4,
+                                      NA,5,5,NA),
+                                    ncol = 4,
+                                    byrow = T))
+```
+
+The natural logarithmic transformations of `impression` and `requests` clearly approached a normal distribution. The transformed `y` target feature somewhat resembled a normal distribution, albeit less closely as compared to `impression`. Both `cpc` and `ctr` appeared to be bimodal distributions after logarithmic transformation, with `ln_ctr` inarguably so.    
+
+
+### Multivariate Plots
+
+After transformation, grouping the `ln_ctr` distribution by level within the `companyId` factor revealed several distinct distributions. The distribution for `companyId` == 43 still appeared bimodal, which possibly indicated a further dimension of the multivariate relationship.
+
+```{r, fig.width=10, fig.height=7, results='hold'}
+ggplot(advertising_train) +
+  geom_density(aes(x = ln_ctr, fill = companyId),
+               alpha = 1/3) +
+  labs(title = "Density Plots for Logarithmic Transformed \`ctr\`",
+       subtitle = "Grouped by \`companyId\`",
+       y = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+```
+
+Producing separate density plots for each level within `deviceType` suggested some trivariate relationship between `ln_ctr`, `companyId`, and `deviceType`. The effect of facetting by `deviceType` was particularly apparent when examining `companyId` == 43, yet it still did not yield Gaussian distributions.
+
+```{r, fig.height=10, fig.width=12, results='hold'}
+ggplot(advertising_train) +
+  geom_density(aes(x = ln_ctr, fill = companyId),
+               alpha = 1/3) +
+  facet_rep_wrap(~deviceType) +
+  labs(title = "Density Plots for Logarithmic Transformed \`ctr\` and each \`companyId\`",
+       subtitle = "Facetted by \`deviceType\`",
+       y = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        strip.background = element_rect(fill = "aliceblue",
+                                        colour = NA))
+```
+
+As above for `ln_ctr`, grouping by `companyId` and facetting by `deviceType` revealed a multivariate relationship between aforementioned descriptive features and the transformed `ln_cpc`.
+
+```{r, results='hold'}
+ggplot(advertising_train) +
+  geom_density(aes(x = ln_cpc, fill = companyId),
+               alpha = 1/2) +
+  labs(title = "Density Plots of \`ln_cpc\`",
+       subtitle = "Grouped by \`companyId\`",
+       ylab = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+ggplot(advertising_train) +
+  geom_density(aes(x = ln_cpc, fill = companyId),
+               alpha = 1/2) +
+  facet_rep_wrap(~deviceType) +
+  labs(title = "Density Plots of \`ln_cpc\` for each \`companyId\`",
+       subtitle = "Facetted by \`deviceType\`",
+       ylab = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        strip.background = element_rect(fill = "aliceblue",
+                                        colour = NA))
+```
+
+
+Each of the pricing features, (`price1`, `price2`, `price3`) were not suitably transformed by either logarithmic, square root, or cube root. Logarithmic transformations appeared to spread the data the most, but these transformations considerably diverged from a symmetrical normal distribution. Further grouping by `deviceType` did not reveal Gaussian distributions.
+
+```{r, fig.width=8, fig.height=9, results='hold'}
+price_trans <- mutate(advertising_train,
+                      "ln_price1" = log(price1),
+                      "ln_price2" = log(price2),
+                      "ln_price3" = log(price3))
+p_price1_trans <- ggplot(price_trans) +
+  geom_density(aes(x = ln_price1, fill = deviceType),
+               alpha = 1/3) +
+  labs(y = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+p_price2_trans <- ggplot(price_trans) +
+  geom_density(aes(x = ln_price2, fill = deviceType),
+               alpha = 1/3) +
+  labs(y = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+p_price3_trans <- ggplot(price_trans) +
+  geom_density(aes(x = ln_price3, fill = deviceType),
+               alpha = 1/3) +
+  labs(y = "Density") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+price_vars_title <- textGrob("Logarithmic Transformed Price Features",
+                             gp = gpar(fontface = "bold"))
+grid.arrange(price_vars_title,
+             p_price1_trans, p_price2_trans,
+             p_price3_trans,
+             layout_matrix = matrix(c(1,
+                                      2,
+                                      2,
+                                      2,
+                                      3,
+                                      3,
+                                      3,
+                                      4,
+                                      4,
+                                      4),
+                                    ncol = 1,
+                                    byrow = T))
+```
+
+Box-Cox transformations with a range of lamda values also did not convert the price features into distributions that resembled a normal curve.
+
+
+```{r eval=FALSE, fig.height=8, fig.width=15}
+boxcox <- function(x, lambda = 1) {
+  
+  (x^(lambda) - 1 /
+     (lambda))
+  
+}
+box_grobs_2 <- list()
+box_grobs_higher <- list()
+for (i in 1:length(seq(0.025, 0.3, 0.025))) {
+  
+  j <- seq(0.025, 0.3, 0.025)[i]
+  
+  boxcox_price <- mutate(advertising_train,
+                         "bc_price1" = boxcox(x = price1,
+                                              lambda = j),
+                         "bc_price2" = boxcox(x = price2,
+                                              lambda = j),
+                         "bc_price3" = boxcox(x = price3,
+                                              lambda = j))
+  
+  bc_colnames <- colnames(boxcox_price)[str_detect(colnames(boxcox_price), "bc_price")]
+  
+  for (k in bc_colnames) {
+    
+    m <- which(bc_colnames %in% k)
+    
+    box_grobs_2[[m]] <- ggplot(select(boxcox_price,
+                                      k, deviceType)) +
+      geom_density(aes(x = .data[[k]], fill = deviceType),
+                   alpha = 1/3) +
+      labs(title = paste("Lambda = ", j)) +
+      ylab("Density") + xlab(k) +
+      theme_minimal() +
+      theme(panel.grid.major.x = element_blank(),
+            panel.grid.minor.x = element_blank())
+    
+  }
+  
+  box_grobs_higher[[i]] <- box_grobs_2
+  
+}
+density_by_lambda <- list()
+for (i in 1:12) {
+  
+  density_by_lambda[[i]] <-  do.call(what = grid.arrange,
+                                     args = list(grobs = box_grobs_higher[[i]],
+                                                 nrow = 1))
+  
+} 
+```
+
+
+```{r, fig.height=8, fig.width=15, include=FALSE, results='hide'}
+boxcox <- function(x, lambda = 1) {
+  
+  (x^(lambda) - 1 /
+     (lambda))
+  
+}
+box_grobs_2 <- list()
+box_grobs_higher <- list()
+for (i in 1:length(seq(0.025, 0.3, 0.025))) {
+  
+  j <- seq(0.025, 0.3, 0.025)[i]
+  
+  boxcox_price <- mutate(advertising_train,
+                         "bc_price1" = boxcox(x = price1,
+                                              lambda = j),
+                         "bc_price2" = boxcox(x = price2,
+                                              lambda = j),
+                         "bc_price3" = boxcox(x = price3,
+                                              lambda = j))
+  
+  bc_colnames <- colnames(boxcox_price)[str_detect(colnames(boxcox_price), "bc_price")]
+  
+  for (k in bc_colnames) {
+    
+    m <- which(bc_colnames %in% k)
+    
+    box_grobs_2[[m]] <- ggplot(select(boxcox_price,
+                                      k, deviceType)) +
+      geom_density(aes(x = .data[[k]], fill = deviceType),
+                   alpha = 1/3) +
+      labs(title = paste("Lambda = ", j)) +
+      ylab("Density") + xlab(k) +
+      theme_minimal() +
+      theme(panel.grid.major.x = element_blank(),
+            panel.grid.minor.x = element_blank())
+    
+  }
+  
+  box_grobs_higher[[i]] <- box_grobs_2
+  
+}
+density_by_lambda <- list()
+for (i in 1:12) {
+  
+  density_by_lambda[[i]] <-  do.call(what = grid.arrange,
+                                     args = list(grobs = box_grobs_higher[[i]],
+                                                 nrow = 1))
+  
+} 
+```
+
+
+```{r fig.height=28, fig.width=20, results='hold'}
+do.call(what = grid.arrange,
+        args = list(grobs = density_by_lambda,
+                    top = textGrob("Box-Cox Transformations for Each \`price\` Feature at Changing lamda Values",
+                                   gp = gpar(fontsize=16,
+                                             fontface = "bold")),
+                    ncol = 1))
+```
+
+The remaining numeric features (`ad_area`, `ad_ratio`, `day`, `ratio1`, `ratio2`, `ratio3`, `ratio4`, `ratio5`, and `viewability`) were not able to be transformed to distributions that approached normal curves via root or logarithmic methods. Despite the accompanying documentation for the prescribed dataset, the `ad_area` and `day` may not strictly be classed as numeric/double variables. Considering the low range, `ad_area` could be intepreted as an identifier, and so categorical. The feature `day`, values 1 - 30, is better interpreted as an ordinal or time value. However, time series forecasting is outside the scope of this project, and so the `day` feature will be largely ignored from the model and only used for partitioning.    
+
+\newpage    
+
+#### Data Normalisation
+
+Considering each of the features span differing ranges, both in their raw and transformed applications, it was deemed necessary to normalise each. Normalising the data allowed for more 
+
+As outlined in **Fundamentals of Machine Learning**, the below formula was used for normalising the data:
+
+$$ a^{'}_{i} = \left( \frac{a_i-min(a)}{max(a)-min(a)} \right) \times (high - low) + low $$
+
+Where $a$ is the feature, whether descriptive or target, $high$ is the highest value in the normalised data range, and $low$ is the lowest value in the normalised data range. A range of 0 - 1 was chosen, so these values were used for $low$ and $high$ respectively.
+
+```{r}
+normalise <- function(x) {
+  
+  x[is.infinite(x)] <- NA
+  
+  (((x - min(x, na.rm = T)) /
+      (max(x, na.rm = T) - min(x, na.rm = T))) * (1 - 0) + 0)
+  
+}
+num_feats <- select(advertising_train,
+                    case_id,
+                    which(sapply(advertising_train, class)=="numeric"))
+for ( i in colnames(num_feats)) {
+  
+  newfeat <- paste0("norm_", i)
+  
+  advertising_train[[newfeat]] <- normalise(num_feats[[i]])
+  
+  advertising_train[[newfeat]][is.na(advertising_train[[newfeat]])] <- advertising_train[[i]]
+  
+}
+sample_adv <- sample_n(advertising_train, 20)
+kable_styling(kable(sample_adv[, 1:floor(ncol(sample_adv)/3)],
+                    caption = "Sample of advertising\\_train Data Frame with Normalised Numeric Features (1/3)",
+                    format.args = list(digits = 2, scientific = F,
+                                       big.mark = ",")),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = T)
+kable_styling(kable(sample_adv[, c(1, 
+                                   seq(from = floor(ncol(sample_adv)/3)*1+1,
+                                       to = floor(ncol(sample_adv)/3)*2,
+                                       by = 1))],
+                    caption = "Sample of advertising\\_train Data Frame with Normalised Numeric Features (2/3)",
+                    format.args = list(digits = 2, scientific = F,
+                                       big.mark = ",")),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = T)
+kable_styling(kable(sample_adv[, c(1, 
+                                   seq(from = floor(ncol(sample_adv)/3)*2+1,
+                                       to = floor(ncol(sample_adv)/3)*3,
+                                       by = 1))],
+                    caption = "Sample of advertising\\_train Data Frame with Normalised Numeric Features (3/3)",
+                    format.args = list(digits = 2, scientific = F,
+                                       big.mark = ",")),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = T)
+```
+
+
+# **Phase 2: Algorithm Implementation**
+
+## Overview
+
+After considerable data cleaning, three machine learning algorithms were trained on the data. The models trained were k-Nearest Neighbours, Random Forest, and Decision Tree. The data itself was too large to use for training, so small subset was used instead.
+Some further data cleaning was required in order to prepare for the machine learning models. Bagging / bootstrapping methods were also implemented so as to achieve the Random Forest model.
+
+## Further Data Preparation
+
+### Checking for Infinite and NA values
+
+
+```{r}
+
+num_vars <- sapply(select(advertising_train,
+                          -case_id), is.numeric)
+
+num_vars <- num_vars[which(num_vars == T)]
+
+adv_train_num_long <- gather(advertising_train,
+                             names(num_vars),
+                             key = "Variable",
+                             value = "Value")
+
+kable_styling(kable(summarise(group_by(adv_train_num_long,
+                                       Variable),
+                              "n finite" = sum(is.finite(Value)),
+                              "n infinite" = sum(is.infinite(Value)),
+                              "n non-NA" = sum(!is.na(Value)),
+                              "n NA" = sum(is.na(Value))),
+                    format.args = list(big.mark = ","),
+                    caption = "Counts of Infinite and NA Observations for each Feature"),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = F)
+```
+
+### Discretising Target Feature
+
+Random Forests, Decision Trees, and K-Nearest Neighbours methods of machine learning function best when predicting categorical variables. As such, the transformed target feature, `norm\_ln\_y` was classified into six equal-width bins; 1 to 6.
+
+```{r, fig.height=7, fig.width=10}
+advertising_train <- mutate(advertising_train,
+                            "norm_ln_y_binned" = as.factor((norm_ln_y %/% 0.2) + 1))
+ggplot(advertising_train) +
+  geom_bar(aes(x = norm_ln_y_binned),
+           stat = "count", bins = 10,
+           fill = "cyan3", alpha = 1/2) +
+  stat_count(aes(x = norm_ln_y_binned,
+                 label = comma(..count..)),
+             geom = "text",
+             vjust = -0.5) +
+  scale_x_discrete(limits = c(1:6),
+                   "Normalised Logarithmic Target Feature (y) Bin") +
+  scale_y_continuous(labels = comma,
+                     breaks = seq(from = 0,
+                                  to = 110000,
+                                  by = 25000),
+                     "Count") +
+  ggtitle("Frequencies of Normalised and Natural Log Transformed Target Feature Bins") +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor = element_blank())
+```
+
+### Subsetting Data Frame
+
+Due to constraints on computing power, it was deemed necessary to subset the data frame to a smaller number of rows.
+
+
+```{r}
+advertising_train_subset <- sample_n(advertising_train,
+                                     size = 1998,
+                                     replace = F)
+advertising_train_subset <- rbind(advertising_train_subset,
+                                  filter(advertising_train,
+                                         norm_ln_y == max(norm_ln_y) |
+                                           norm_ln_y == min(norm_ln_y)))
+```
+
+
+## Feature Selection
+
+
+```{r}
+factor_vars <- sapply(advertising_train_subset,
+                      is.factor)
+factor_vars <- names(factor_vars[which(factor_vars == T)])
+advertising_train_transformed <- select(advertising_train_subset,
+                                        factor_vars,
+                                        contains("norm"),
+                                        -norm_ln_y,
+                                        -norm_y)
+```
+
+
+```{r}
+classif_task <- makeClassifTask(id = "target_binned",
+                                data = advertising_train_transformed,
+                                target = "norm_ln_y_binned")
+```
+
+
+### Filter Methods
+
+```{r}
+filter_vals <- generateFilterValuesData(classif_task)
+plotFilterValues(filter_vals) +
+  coord_flip()+
+  theme_minimal() +
+  theme(panel.grid.major.y = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_rect(colour = "turquoise3",
+                                    fill = NA),
+        title = element_text(face = "bold"))
+```
+
+```{r}
+filtered_task <- filterFeatures(classif_task,
+                                fval = filter_vals,
+                                perc = 0.4)
+```
+
+
+## Implementing Three Machine Learning Models
+
+
+```{r}
+lrn <- makeFilterWrapper(learner = "classif.kknn",
+                         fw.method = "FSelector_chi.squared")
+param_set <- makeParamSet(makeDiscreteParam("fw.perc",
+                                            values = seq(0.2,
+                                                         0.5,
+                                                         0.05)))
+rdesc <- makeResampleDesc("CV", iters = 3)
+res <- tuneParams(lrn,
+                  task = classif_task,
+                  resampling = rdesc,
+                  par.set = param_set,
+                  control = makeTuneControlGrid())
+paste("The optimal percentage is:",
+      res$x )
+paste("The misclassification error is:",
+      res$y)
+random_Ctrl <- makeFeatSelControlRandom(maxit = 10L)
+rdesc2 <- makeResampleDesc("CV", iters = 3)
+sfeats <- selectFeatures(learner = "classif.kknn",
+                         task = classif_task,
+                         resampling = rdesc2,
+                         control = random_Ctrl,
+                         show.info = F)
+sfeats$x
+sfeats$y
+```
+
+
+### Tuning Hyperparameters
+
+```{r}
+fusedLrn_kknn <- makeFilterWrapper(learner = "classif.kknn",
+                                   fw.method = "FSelector_chi.squared",
+                                   fw.perc = res$x$fw.perc)
+fused_Model_kknn <- mlr::train(fusedLrn_kknn,
+                               classif_task)
+prediction_fused_kknn <- predict(fused_Model_kknn,
+                                 newdata = advertising_train)
+prediction_fused_kknn
+performance(prediction_fused_kknn)
+```
+
+### Binning `countryId`
+
+```{r}
+n_countryId <- length(levels(advertising_train$countryId))
+```
+
+The total number of unique `countryId`s was `r n_countryId`. This was far greater than typical values that can be handled by machine learning algorithms, so was futher discretised to 26 bins; 1:26.
+
+```{r}
+advertising_train <- mutate(advertising_train,
+                            countryId_bin =  as.factor((as.numeric(as.character(countryId)) %/% 10) +1 ))
+sort(unique(advertising_train$countryId_bin))
+advertising_train_subset <- sample_n(advertising_train,
+                                     size = 1900,
+                                     replace = F)
+advertising_train_subset <- rbind(advertising_train_subset,
+                                  filter(advertising_train,
+                                         norm_ln_y == max(advertising_train$norm_ln_y,
+                                                          na.rm = T) |
+                                           norm_ln_y == min(advertising_train$norm_ln_y,
+                                                            na.rm = T)))
+for (i in levels(advertising_train$countryId_bin)) {
+  
+  temp <- filter(advertising_train,
+                 countryId_bin == i)
+  
+  advertising_train_subset <- rbind(advertising_train_subset,
+                                    sample_n(temp, size = 1))
+  
+}
+advertising_train_subset <- select(advertising_train_subset,
+                                   -countryId)
+factor_vars <- sapply(advertising_train_subset,
+                      is.factor)
+factor_vars <- names(factor_vars[which(factor_vars == T)])
+advertising_train_transformed <- select(advertising_train_subset,
+                                        factor_vars,
+                                        contains("norm"),
+                                        -norm_ln_y,
+                                        -norm_y)
+sample_adv <- sample_n(advertising_train_transformed,
+                       20)
+kable_styling(kable(sample_adv[ , 1:floor(ncol(sample_adv)/2)],
+                    format.args = list(big.mark = ","),
+                    caption = "Transformed Data Frame (1/2)"),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = F)
+kable_styling(kable(sample_adv[ , ceiling(ncol(sample_adv)/2) : ncol(sample_adv)],
+                    format.args = list(big.mark = ","),
+                    caption = "Transformed Data Frame (2/2)"),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = F)
+```
+
+
+### Random Forest
+
+```{r}
+classif_task <- makeClassifTask(id = "target_binned",
+                                data = advertising_train_transformed,
+                                target = "norm_ln_y_binned")
+rf_lrn <- makeLearner("classif.randomForest",
+                      predict.type = "response",
+                      fix.factors.prediction = T)
+wrapped_lrn_rf <- makeBaggingWrapper(rf_lrn,
+                                     bw.iters = 10,
+                                     bw.feats = 0.2)
+wrappedRf_model <- mlr::train(wrapped_lrn_rf,
+                              classif_task)
+wrappedRf_model
+RF_prediction <- predict(wrappedRf_model,
+                         newdata = advertising_train)
+
+kable_styling(kable(sample_n(RF_prediction$data,
+                             size = 10),
+                    caption = "Prediction Truth and Response for Random Forest Model"),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = F)
+
+performance(RF_prediction)
+```
+
+
+```{r}
+fusedLrn_rf <- makeFilterWrapper(learner = "classif.randomForest",
+                                 fw.method = "FSelector_chi.squared",
+                                 fw.perc = res$x$fw.perc)
+fused_Model_rf <- mlr::train(fusedLrn_rf,
+                        classif_task)
+prediction_fused_rf <- predict(fused_Model_rf,
+                               newdata = advertising_train)
+
+kable_styling(kable(sample_n(prediction_fused_rf$data,
+                             size = 20),
+                    caption = "Prediction Truth and Response for Fused Random Forest Model"),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = F)
+
+performance(prediction_fused_rf)
+
+```
+
+
+### Decision Tree
+
+
+```{r}
+rpart_lrn <- makeLearner("classif.rpart", predict.type = 'response',
+                         fix.factors.prediction = TRUE)
+wrapped_lrn_rpart <- makeBaggingWrapper(rpart_lrn,
+                                        bw.iters = 10,
+                                        bw.feats = 0.2)
+wrappedRpart_mod <- mlr::train(wrapped_lrn_rpart, classif_task)
+wrappedRpart_mod
+prediction_rpart <- predict(wrappedRpart_mod,
+                            newdata = advertising_train)
+kable_styling(kable(sample_n(prediction_rpart$data, 10),
+                    caption = "Prediction Truth and Response for Decision Tree Model"),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = F)
+
+performance(prediction_rpart)
+
+```
+
+
+```{r}
+
+fusedLrn_rpart <- makeFilterWrapper(learner = "classif.rpart",
+                                    fw.method = "FSelector_chi.squared",
+                                    fw.perc = res$x$fw.perc)
+fused_Model_rpart <- mlr::train(fusedLrn_rf,
+                           classif_task)
+prediction_fused_rpart <- predict(fused_Model_rpart,
+                                  newdata = advertising_train)
+
+kable_styling(kable(sample_n(prediction_fused_rpart$data,
+                             size = 10),
+                    caption = "Prediction Truth and Response for Fused Decision Tree Model"),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = F)
+
+performance(prediction_fused_rpart)
+
+```
+
+### K-Nearest Neighbours on Transformed Data
+
+The K-Nearest Neighbours performed above was prior to futher data preparation. As such, KNN was repeated using the most recently transformed data frame.
+
+```{r}
+
+fused_Model_kknn2 <- mlr::train(fusedLrn_kknn,
+                           classif_task)
+
+prediction_fused_kknn2 <- predict(fused_Model_kknn,
+                                  newdata = advertising_train)
+
+kable_styling(kable(sample_n(prediction_fused_kknn2$data,
+                             size = 10),
+                    caption = "Prediction Truth and Response for Fused Random Forest Model on Updated Data"),
+              font_size = 10, bootstrap_options = c("striped"),
+              full_width = F)
+```
+
+## Performance Comparison
+
+```{r}
+kable_styling(
+  kable(
+    t(tibble("KKNN on deprecated data frame" = performance(prediction_fused_kknn),
+             "KKNN on updated data frame" = performance(prediction_fused_kknn2),
+             "Decision Tree" = performance(prediction_fused_rpart),
+             "Random Forest" = performance(prediction_fused_rf))),
+    format.args = list(big.mark = ",",
+                       digits = 4),
+    caption = "Mean Misclassification Error"),
+  font_size = 10, bootstrap_options = c("striped"),
+  full_width = F
+)
+```
+
+```{r}
+kable_styling(
+  kable(
+    calculateConfusionMatrix(prediction_fused_kknn,
+                             sums = T)$result,
+    format.args = list(big.mark = ",",
+                       digits = 4),
+    caption = paste("Confusion Matrix for",
+                    quote(prediction_fused_kknn))),
+  font_size = 10, bootstrap_options = c("striped"),
+  full_width = F
+)
+kable_styling(
+  kable(
+    calculateConfusionMatrix(prediction_fused_rpart,
+                             sums = T)$result,
+    format.args = list(big.mark = ",",
+                       digits = 4),
+    caption = paste("Confusion Matrix for",
+                    quote(prediction_fused_rpart))),
+  font_size = 10, bootstrap_options = c("striped"),
+  full_width = F
+)
+kable_styling(
+  kable(
+    calculateConfusionMatrix(prediction_fused_rf,
+                             sums = T)$result,
+    format.args = list(big.mark = ",",
+                       digits = 4),
+    caption = paste("Confusion Matrix for",
+                    quote(prediction_fused_rf))),
+  font_size = 10, bootstrap_options = c("striped"),
+  full_width = F
+)
+
+```
+
+
+## Results
+
+Despite linear transformation, normalisation, and binning, each of the three models struggled to accurately predict the transformed `y` target feature Further transformation to the other numeric descriptive features did not yield reliable predictions on test data. Even bagging/bootstrapping the model did not improve predictive performance.
+
+The short-comings of each model were exemplified in the Mean Misclassification Error values, as outlined below:
+* k-Nearest Neighbours performance = `r performance(prediction_fused_kknn2)`
+* Random Forest performance = `r performance(prediction_fused_rf)`
+* Decision Tree performance = `r performance(prediction_fused_rpart)`
+
+The confusion matrices further highlighted the misclassification rate of the models. Granted, the heaviest weight in each matrix was along the diagonal, but the off-diagonals were heavier than expected.
+
+### Discussion
+
+Computing power was likely the biggest limitation of the project. Considering all processes were computed on 8GB RAM and a 2.3GHz processor, immediate improvements are transparent. Each of the models were trained on just over 2000 observations; barely 1% of the total data frame. Server computing options with considerably greater memory and processing power might unlock a solution.
+
+The prescribed data set was offered with the subtext that it was unable to be accurately predicted by industry experts, and this project did little to diverge from previous attempts by other parties. Even with substantial data cleaning processes such as logarithmic transformation and normalisation of continuous numeric features, binning the target feature, and increasing bin widths of categorical descriptive features did not yield a model of low misclassification rate.
+
+No error-based learning model was trained, such as a multiple regression model. Considering the continuous nature of the target feature, a regression model may have suited well.
+
+However, there may have been gaps in the data itself. The data was proprietary in nature and provided by an industry leader. As such, it follows that the data may have had features omitted for the sake of privacy and there may have been a feature missing that could offer a large amount of information gain.
+
+## Conclusions
+
+This machine learning project fell short of its aims. This was not solely due to computing constraints, but also due to contributing factors such as sub-optimal data cleaning and failure to explore further machine learning models. It was expected that the target feature would be difficult to build a machine learning model for, and this expectation was observed throughout the project.
+
+## References
+
+* Kelleher J.D., Namee B.M., D'Arcy A., 2015, *Fundamentals of Machine Learning for Predictive Data Analytics*, Massachusetts Institute of Technology, USA.
+
+* Osborne J.W., 2010, *Improving your data transformations: Applying the Box-Cox transformation*, Practical Assessment, Research & Evaluation, V.05 No.12, <http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.470.7417&rep=rep1&type=pdfhttp://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.470.7417&rep=rep1&type=pdf>
+
+```{r, include=F}
+
+beep(8)
+
+```
+

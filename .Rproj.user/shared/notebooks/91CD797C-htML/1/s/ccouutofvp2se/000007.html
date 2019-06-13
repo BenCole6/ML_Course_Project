@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="lib/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lib/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="lib/kePrint-0.0.1/kePrint.js"></script>
+
+</head>
+<body style="background-color:white;">
+<table class="table table-striped" style="font-size: 10px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">Sample of advertising\_train Data Frame After Logarithmic Transformations</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> case_id </th>
+   <th style="text-align:left;"> companyId </th>
+   <th style="text-align:left;"> countryId </th>
+   <th style="text-align:left;"> deviceType </th>
+   <th style="text-align:right;"> day </th>
+   <th style="text-align:left;"> dow </th>
+   <th style="text-align:right;"> price1 </th>
+   <th style="text-align:right;"> price2 </th>
+   <th style="text-align:right;"> price3 </th>
+   <th style="text-align:right;"> ad_area </th>
+   <th style="text-align:right;"> ad_ratio </th>
+   <th style="text-align:right;"> requests </th>
+   <th style="text-align:right;"> impression </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 198718 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 56 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:left;"> Friday </td>
+   <td style="text-align:right;"> 0.68 </td>
+   <td style="text-align:right;"> 0.68 </td>
+   <td style="text-align:right;"> 0.683 </td>
+   <td style="text-align:right;"> 9.4080 </td>
+   <td style="text-align:right;"> 0.8333 </td>
+   <td style="text-align:right;"> 35571 </td>
+   <td style="text-align:right;"> 2955 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 169299 </td>
+   <td style="text-align:left;"> 159 </td>
+   <td style="text-align:left;"> 100 </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 24 </td>
+   <td style="text-align:left;"> Monday </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.14 </td>
+   <td style="text-align:right;"> 0.420 </td>
+   <td style="text-align:right;"> 0.0001 </td>
+   <td style="text-align:right;"> 1.0000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6929 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 75 </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> Sunday </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.0001 </td>
+   <td style="text-align:right;"> 1.0000 </td>
+   <td style="text-align:right;"> 162 </td>
+   <td style="text-align:right;"> 128 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 102363 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 231 </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> Saturday </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 7.9200 </td>
+   <td style="text-align:right;"> 0.1818 </td>
+   <td style="text-align:right;"> 378 </td>
+   <td style="text-align:right;"> 270 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 91119 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 229 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 14 </td>
+   <td style="text-align:left;"> Friday </td>
+   <td style="text-align:right;"> 0.26 </td>
+   <td style="text-align:right;"> 0.70 </td>
+   <td style="text-align:right;"> 1.415 </td>
+   <td style="text-align:right;"> 0.0001 </td>
+   <td style="text-align:right;"> 1.0000 </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 38 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 121590 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 202 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> Tuesday </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 18.0000 </td>
+   <td style="text-align:right;"> 2.0000 </td>
+   <td style="text-align:right;"> 14595 </td>
+   <td style="text-align:right;"> 14540 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 13666 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 12 </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> Monday </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.0001 </td>
+   <td style="text-align:right;"> 1.0000 </td>
+   <td style="text-align:right;"> 163 </td>
+   <td style="text-align:right;"> 97 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 98003 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 189 </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> Saturday </td>
+   <td style="text-align:right;"> 0.09 </td>
+   <td style="text-align:right;"> 0.17 </td>
+   <td style="text-align:right;"> 0.330 </td>
+   <td style="text-align:right;"> 6.5520 </td>
+   <td style="text-align:right;"> 0.1236 </td>
+   <td style="text-align:right;"> 4538 </td>
+   <td style="text-align:right;"> 190 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 187566 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 179 </td>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:left;"> Thursday </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 6.5520 </td>
+   <td style="text-align:right;"> 0.1236 </td>
+   <td style="text-align:right;"> 854 </td>
+   <td style="text-align:right;"> 840 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 101921 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 56 </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:left;"> Saturday </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 9.4080 </td>
+   <td style="text-align:right;"> 0.8333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 212919 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 234 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:left;"> Sunday </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 1.6000 </td>
+   <td style="text-align:right;"> 0.1562 </td>
+   <td style="text-align:right;"> 189436 </td>
+   <td style="text-align:right;"> 164347 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 193492 </td>
+   <td style="text-align:left;"> 95 </td>
+   <td style="text-align:left;"> 13 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 27 </td>
+   <td style="text-align:left;"> Thursday </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.07 </td>
+   <td style="text-align:right;"> 0.270 </td>
+   <td style="text-align:right;"> 7.5000 </td>
+   <td style="text-align:right;"> 0.8333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 160727 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 110 </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 23 </td>
+   <td style="text-align:left;"> Sunday </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.0001 </td>
+   <td style="text-align:right;"> 1.0000 </td>
+   <td style="text-align:right;"> 79 </td>
+   <td style="text-align:right;"> 79 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 119641 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 177 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> Tuesday </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.0001 </td>
+   <td style="text-align:right;"> 1.0000 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 11 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 120790 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 197 </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:left;"> Tuesday </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.0001 </td>
+   <td style="text-align:right;"> 1.0000 </td>
+   <td style="text-align:right;"> 1983 </td>
+   <td style="text-align:right;"> 1454 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 86510 </td>
+   <td style="text-align:left;"> 159 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:left;"> Thursday </td>
+   <td style="text-align:right;"> 0.01 </td>
+   <td style="text-align:right;"> 0.11 </td>
+   <td style="text-align:right;"> 0.350 </td>
+   <td style="text-align:right;"> 0.0001 </td>
+   <td style="text-align:right;"> 1.0000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 82517 </td>
+   <td style="text-align:left;"> 159 </td>
+   <td style="text-align:left;"> 190 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:left;"> Thursday </td>
+   <td style="text-align:right;"> 0.18 </td>
+   <td style="text-align:right;"> 0.41 </td>
+   <td style="text-align:right;"> 0.803 </td>
+   <td style="text-align:right;"> 0.0001 </td>
+   <td style="text-align:right;"> 1.0000 </td>
+   <td style="text-align:right;"> 730 </td>
+   <td style="text-align:right;"> 525 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 134500 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 89 </td>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 20 </td>
+   <td style="text-align:left;"> Thursday </td>
+   <td style="text-align:right;"> 2.46 </td>
+   <td style="text-align:right;"> 3.87 </td>
+   <td style="text-align:right;"> 7.747 </td>
+   <td style="text-align:right;"> 8.7300 </td>
+   <td style="text-align:right;"> 0.0928 </td>
+   <td style="text-align:right;"> 533 </td>
+   <td style="text-align:right;"> 90 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 52734 </td>
+   <td style="text-align:left;"> 43 </td>
+   <td style="text-align:left;"> 77 </td>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> Sunday </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 0.0001 </td>
+   <td style="text-align:right;"> 1.0000 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 126474 </td>
+   <td style="text-align:left;"> 159 </td>
+   <td style="text-align:left;"> 17 </td>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 19 </td>
+   <td style="text-align:left;"> Wednesday </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:right;"> 0.000 </td>
+   <td style="text-align:right;"> 7.5000 </td>
+   <td style="text-align:right;"> 0.8333 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
